@@ -152,8 +152,8 @@ $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/nongnghiep_lin
                 }
 
                 /*** Legend ***/
-                var ht_sudungdat_legend = L.control({position: "topleft"});
-                ht_sudungdat_legend.onAdd = map => {
+                var nongnghiep_legend = L.control({position: "topleft"});
+                nongnghiep_legend.onAdd = map => {
                     var div = L.DomUtil.create('div', 'info legend');
 
                     div.innerHTML =
@@ -225,14 +225,48 @@ $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/nongnghiep_lin
                     draggable.enable();
                     return div;
                 };
-                ht_sudungdat_legend.addTo(map);
+                nongnghiep_legend.addTo(map);
 
-                /*--- Control Legend ---*/
+                /*** Chart ***/
+                var nongnghiep_chart = L.control({position: "topright"});
+                nongnghiep_chart.onAdd = map => {
+                    var div = L.DomUtil.create('div', 'info legend');
+
+                    /*-- Pie Chart have Series --*/
+                    $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/chart_data/nongnghiep_Pie_timeline.json", function (nongnghiep_Pie) {
+                        //console.log(nongnghiep_Pie);
+                        render_pie_TimeLine_nongnghiep("pie_chart_nongnghiep", nongnghiep_Pie);
+                    })
+
+                    div.innerHTML =
+                        "<div class='chart-content'>" +
+                        "<div class='chart'>" +
+                        ("<p class='title-legend-chart'>" +
+                            "Cơ cấu giá trị sản xuất nông lâm thủy sản <br> phân theo ngành" +
+                            "</p>") +
+                        ("<p class='subtitle-chart'>(phân giá thực tế, đơn vị: %)</p>") +
+                        "<div id='pie_chart_nongnghiep' class='mypiechart'></div>" +
+                        "</div>" +
+                        "</div>";
+                    var draggable = new L.Draggable(div);
+                    draggable.enable();
+                    return div;
+                };
+                nongnghiep_chart.addTo(map);
+
+                /*--- Control Chart & Legend ---*/
                 $('#switch_legend').change(function () {
                     if ($(this).prop('checked')) {
-                        map.addControl(ht_sudungdat_legend);
+                        map.addControl(nongnghiep_legend);
                     } else {
-                        map.removeControl(ht_sudungdat_legend);
+                        map.removeControl(nongnghiep_legend);
+                    }
+                });
+                $('#switch_chart').change(function () {
+                    if ($(this).prop('checked')) {
+                        map.addControl(nongnghiep_chart);
+                    } else {
+                        map.removeControl(nongnghiep_chart);
                     }
                 });
 

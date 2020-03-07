@@ -1,11 +1,156 @@
-function render_pie_TimeLine(div_id, data_chart) {
+function render_pie_TimeLine_dulich(div_id, data_chart) {
     am4core.useTheme(am4themes_animated);
     am4core.ready(function () {
         var chart = am4core.create(div_id, am4charts.PieChart);
         var chartData = data_chart;
 
         chart.logo.height = -500;
-        chart.data = data_chart["2008"];
+        chart.data = [
+            {
+                "sector": "Bỉ",
+                "size": 0
+            },
+            {
+                "sector": "Campuchia",
+                "size": 0
+            },
+            {
+                "sector": "Canada",
+                "size": 0
+            },
+            {
+                "sector": "Các quốc gia khác",
+                "size": 93.247
+            },
+            {
+                "sector": "Châu Mỹ",
+                "size": 0
+            },
+            {
+                "sector": "Châu Phi",
+                "size": 0
+            },
+            {
+                "sector": "Châu Á",
+                "size": 0
+            },
+            {
+                "sector": "Châu Âu",
+                "size": 0
+            },
+            {
+                "sector": "Châu Úc",
+                "size": 0
+            },
+            {
+                "sector": "Hoa Kỳ",
+                "size": 38.404
+            },
+            {
+                "sector": "Hà Lan",
+                "size": 0
+            },
+            {
+                "sector": "Hàn Quốc",
+                "size": 32.727
+            },
+            {
+                "sector": "Hồng Kông",
+                "size": 0
+            },
+            {
+                "sector": "Indonesia",
+                "size": 0
+            },
+            {
+                "sector": "Lào",
+                "size": 0
+            },
+            {
+                "sector": "Malaysia",
+                "size": 19.863
+            },
+            {
+                "sector": "Na Uy",
+                "size": 0
+            },
+            {
+                "sector": "New Zealand",
+                "size": 0
+            },
+            {
+                "sector": "Nga",
+                "size": 0
+            },
+            {
+                "sector": "Nhật Bản",
+                "size": 34.788
+            },
+            {
+                "sector": "Philippines",
+                "size": 0
+            },
+            {
+                "sector": "Pháp",
+                "size": 16.565
+            },
+            {
+                "sector": "Phần Lan",
+                "size": 0
+            },
+            {
+                "sector": "Singapore",
+                "size": 21.49
+            },
+            {
+                "sector": "Thái Lan",
+                "size": 14.125
+            },
+            {
+                "sector": "Thụy sĩ",
+                "size": 0
+            },
+            {
+                "sector": "Thụy Điển",
+                "size": 0
+            },
+            {
+                "sector": "Trung Quốc",
+                "size": 59.114
+            },
+            {
+                "sector": "Tây Ban Nha",
+                "size": 0
+            },
+            {
+                "sector": "Vương quốc Anh",
+                "size": 0
+            },
+            {
+                "sector": "Úc",
+                "size": 23.814
+            },
+            {
+                "sector": "Ý",
+                "size": 0
+            },
+            {
+                "sector": "Đan mạch",
+                "size": 0
+            },
+            {
+                "sector": "Đài Loan",
+                "size": 21.858
+            },
+            {
+                "sector": "Đức",
+                "size": 0
+            },
+            {
+                "sector": "Ấn Độ",
+                "size": 0
+            }
+        ];
         chart.fontSize = 13;
         chart.fontStyle = "bold";
 

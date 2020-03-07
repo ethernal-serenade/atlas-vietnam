@@ -717,3 +717,8 @@ tspan {
     margin-top: -1%;
     margin-bottom: 0;
 }
+/* Chuyên đề Nông nghiệp */
+#pie_chart_nongnghiep {
+    width: 450px;
+    height: 200px;
+}
