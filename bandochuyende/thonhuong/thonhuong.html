@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="Tooplate" name="author">
+
+    <title>Thổ nhưỡng Việt Nam</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon-16x16.png">
+
+    <!-- Font core CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Charm:400,700&display=swap&subset=vietnamese" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap/css/bootstrap-switch-button.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link href="../../assets/css/fontawesome.css" rel="stylesheet">
+    <link href="../../assets/css/main.css" rel="stylesheet">
+    <link href="../../assets/css/owl.css" rel="stylesheet">
+
+    <!-- Chart CSS NVD3 -->
+    <link href="../../Chart/nv.d3.css" rel="stylesheet">
+
+    <!-- Map CSS -->
+    <link rel="stylesheet" type="text/css" href="../assets_map/css/leaflet.css">
+    <link rel="stylesheet" type="text/css" href="../assets_map/css/Control.MiniMap.css">
+    <link rel="stylesheet" type="text/css" href="../assets_map/css/MapStyle.css">
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap-switch-button.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="../../assets/js/owl.js"></script>
+    <script src="../../assets/js/accordations.js"></script>
+    <script src="../../assets/js/screenfull.js"></script>
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Map Scripts -->
+    <script src="../assets_map/js/leaflet.js"></script>
+    <script src="../assets_map/js/leaflet-providers.js"></script>
+    <script src="../assets_map/js/leaflet.textpath.js"></script>
+    <script src="../assets_map/js/Control.MiniMap.js"></script>
+</head>
+<body>
+<div class="sequence">
+    <div class="seq-preloader">
+        <svg class="seq-preload-indicator" height="16" viewBox="0 0 39 16" width="39"
+             xmlns="http://www.w3.org/2000/svg">
+            <g fill="#F96D38">
+                <path class="seq-preload-circle seq-preload-circle-1"
+                      d="M3.999 12.012c2.209 0 3.999-1.791 3.999-3.999s-1.79-3.999-3.999-3.999-3.999 1.791-3.999 3.999 1.79 3.999 3.999 3.999z"/>
+                <path class="seq-preload-circle seq-preload-circle-2"
+                      d="M15.996 13.468c3.018 0 5.465-2.447 5.465-5.466 0-3.018-2.447-5.465-5.465-5.465-3.019 0-5.466 2.447-5.466 5.465 0 3.019 2.447 5.466 5.466 5.466z"/>
+                <path class="seq-preload-circle seq-preload-circle-3"
+                      d="M31.322 15.334c4.049 0 7.332-3.282 7.332-7.332 0-4.049-3.282-7.332-7.332-7.332s-7.332 3.283-7.332 7.332c0 4.05 3.283 7.332 7.332 7.332z"/>
+            </g>
+        </svg>
+    </div>
+</div>
+<div class="logo">
+    <img id="logo-img" src="../../assets/images/logo.jpg">
+</div>
+
+<div class="nav-home">
+    <ul>
+        <li><a href="../../index.html">Trang chủ</a></li>
+        <li>
+            <p>Bản đồ chuyên đề:</p>
+        </li>
+        <li>
+            <span>Các nhóm và các loại đất chính</span>
+        </li>
+    </ul>
+</div>
+
+<nav class="nav flex-column nav-map">
+    <p class="tile-data-map">Bật tắt dữ liệu bản đồ</p>
+    <div class="button-item">
+        <div class="switch-buton">
+            <input id="thonhuong_data" checked type="checkbox" data-toggle="switchbutton">
+        </div>
+        <label class="nav-titles">Nhóm đất</label>
+    </div>
+    <p class="tile-ctr-map">Bật tắt thành phần bản đồ</p>
+    <div class="button-item">
+        <div class="switch-buton">
+            <input id="switch_legend" checked type="checkbox" data-toggle="switchbutton">
+        </div>
+        <label class="nav-titles">Chú thích</label>
+    </div>
+    <div class="button-item">
+        <div class="switch-buton">
+            <input id="switchbutton_screen" type="checkbox" data-toggle="switchbutton"
+                   data-onstyle="success" data-offstyle="danger">
+        </div>
+        <label class="nav-titles"> Mở rộng màn hình</label>
+    </div>
+</nav>
+
+<div class="container-map">
+    <div id="mymap"></div>
+</div>
+
+<!-- Map Scripts -->
+<script src="MapScript.js"></script>
+
+<!-- Additional Scripts -->
+<script type="text/javascript">
+    $(document).on("keydown",function(e){
+        console.log(e.keyCode);
+        if(e.keyCode===27||e.keyCode===122) return false
+    });
+
+    $(document).ready(function () {
+        /*--- Full Screen ---*/
+        $('#switchbutton_screen').change(function () {
+            if ($(this).prop('checked')) {
+                screenfull.request();
+                console.log("on");
+            } else {
+                screenfull.exit();
+                console.log("off");
+            }
+        });
+
+        // navigation click actions
+        $('.scroll-link').on('click', function (event) {
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function (event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 'slow');
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+
+    // scroll function
+    function scrollToID(id, speed) {
+        var offSet = 0;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop: targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+
+    if (typeof console === "undefined") {
+        console = {
+            log: function () {
+            }
+        };
+    }
+</script>
+</body>
+</html>

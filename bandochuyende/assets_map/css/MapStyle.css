@@ -1,0 +1,719 @@
+/*** Leaflet Elevation Custom***/
+.leaflet-tooltip {
+    font-weight: 700;
+}
+
+.download {
+    display: none;
+}
+
+#elevation-div {
+    height: 300px;
+    width: 500px;
+}
+
+.data-summary {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+}
+
+.data-summary .summaryvalue {
+    font-weight: bold;
+    color: red;
+}
+
+.chart-placeholder {
+    top: 20%;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    font-style: italic;
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+g.axis text {
+    font-family: Arial;
+}
+
+div.custom-theme svg {
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+.leaflet-control.elevation .background {
+    background-color: transparent;
+}
+
+.custom-theme.leaflet-control.elevation .area {
+    fill: rgba(243, 171, 81, 0.85);
+    stroke: hsla(0, 0%, 100%, 0.85);
+    stroke-width: 2.8;
+}
+
+.custom-theme.height-focus.circle-lower {
+    fill: #FF0;
+}
+
+.custom-theme.elevation-polyline {
+    stroke: #ffc4e2;
+    stroke-opacity: 0.85;
+}
+
+/*** Custom Scrollbar if navbar have overflow ***/
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #99CDFF;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #757575;
+}
+
+#mymap {
+    position: absolute;
+    width: 85%;
+    height: 94vh;
+    z-index: -1;
+}
+
+/*** Label cho Pyramid Chart ***/
+tspan {
+    font-family: "Arial";
+    font-weight: bold;
+}
+
+/*** Nav Home ***/
+.nav-home {
+    margin-left: 15%;
+}
+
+.nav-home ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #99CDFF;
+}
+
+.nav-home li {
+    float: left;
+}
+
+.nav-home li a {
+    display: block;
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-home li p {
+    display: block;
+    color: #ff0023;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bolder;
+    margin: 0;
+    padding: 14px 16px 14px 100px;
+    text-decoration: none;
+}
+
+.nav-home li span {
+    display: block;
+    color: #0018da;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 35px;
+    font-style: italic;
+    font-family: 'Charm', bold;
+    margin: 0;
+    padding-left: 50px;
+    text-decoration: none;
+}
+
+.nav-home li a:hover {
+    color: white;
+    background-color: #ff0716;
+}
+
+/*** Nav Map ***/
+.nav-map {
+    background: rgba(255, 255, 255, 1);
+    z-index: -1;
+}
+
+.tile-ctr-map, .tile-data-map {
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.button-item {
+    display: inline;
+    width: 50px;
+}
+
+.switch-buton, .switch-buton-overflow {
+    margin-left: 10px;
+    margin-top: 10px;
+    display: block;
+}
+
+.switch-buton-overflow {
+    margin-left: -144px;
+}
+
+.nav-titles, .nav-titles-overflow {
+    position: absolute;
+    margin-left: 55px;
+    margin-top: -30px;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.nav-titles-overflow {
+    margin-left: -32px;
+}
+
+.container-map {
+    margin-left: 15%;
+}
+
+/*** Symbol Features Map ***/
+.leaflet-tooltip {
+    background-color: #fff0 !important;
+    border: none !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+    box-shadow: none !important;
+}
+
+/* Label Việt Nam*/
+.VN_label {
+    position: relative;
+    top: -10px;
+    left: 7px;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #3a47ff;
+}
+
+/* Chuyên đề Lâm nghiệp */
+/* Biểu đồ cột */
+.key_tb{
+    font-weight: bold;
+    font-size: 13px;
+    color: #1f77b4;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.chart_data {
+    border-collapse: collapse;
+}
+
+.chart_data tr, .chart_data td{
+    border-bottom: solid 1px #dd1100;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Chuyên đề Kinh tế */
+/* Cảng biển */
+.cangbien_label {
+    position: relative;
+    top: -10px;
+    left: 7px;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: #ff3d5a;
+}
+
+.cangbien_divIcon {
+    background-color: #ffffff;
+    border-radius: 50%;
+    border-color: #000000;
+    border-width: 1px;
+    border-style: solid;
+    text-shadow: 1 1 2px #181818e3;
+    width: 30px !important;
+    height: 30px !important;
+    text-align: center;
+}
+
+.cangbien_symbol {
+    margin-top: 4px;
+    margin-left: 0px;
+    font-size: 20px;
+    color: #3078f2;
+}
+/* Cửa khẩu */
+.cuakhau_label {
+    position: relative;
+    top: -10px;
+    left: 7px;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: #5c88ff;
+}
+
+.cuakhau_divIcon {
+    background-color: #ffffff;
+    border-color: #000000;
+    border-width: 1px;
+    border-style: solid;
+    text-shadow: 1 1 2px #181818e3;
+    width: 22px !important;
+    height: 20px !important;
+    text-align: center;
+}
+
+.cuakhau_symbol_up {
+    margin-top: 4px;
+    margin-left: 0px;
+    font-size: 13px;
+    color: #3078f2;
+    display: inline;
+}
+
+.cuakhau_symbol_down {
+    margin-top: 4px;
+    margin-left: -6px;
+    font-size: 13px;
+    color: #f2000c;
+    display: inline;
+}
+
+/* Chuyên đề Dân số */
+/* Đô thị Đặc biệt */
+.TS_dothi_label {
+    position: relative;
+    top: -10px;
+    left: 7px;
+    display: inline-block;
+    font-family: "Times New Roman";
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.TS_dothi_divIcon {
+    border-radius: 50%;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    text-shadow: 1 1 2px #181818e3;
+    width: 30px !important;
+    height: 30px !important;
+    text-align: center;
+}
+
+.TS_dothi_symbol {
+    margin-top: 4px;
+    margin-left: 2px;
+    font-size: 20px;
+    color: #000000;
+}
+
+/* Đô thị loại 1 */
+.T1_dothi_label {
+    position: relative;
+    top: -10px;
+    left: 1px;
+    display: inline-block;
+    font-size: 15px;
+    font-family: "Tahoma", sans-serif;
+    font-weight: lighter;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.T1_dothi_divIcon {
+    border-radius: 50%;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    width: 20px !important;
+    height: 20px !important;
+    text-align: center;
+}
+
+.T1_dothi_symbol {
+    margin-top: 2px;
+    margin-left: 1px;
+    font-size: 13px;
+    color: #000000;
+}
+
+/* Đô thị loại 2 */
+.T2_dothi_label {
+    position: relative;
+    top: -3px;
+    left: 5px;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: lighter;
+    text-align: center;
+    text-transform: normal;
+    color: #000000;
+}
+
+.T2_dothi_divIcon {
+    border-radius: 50%;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    width: 17px !important;
+    height: 17px !important;
+    text-align: center;
+}
+
+.T2_dothi_symbol {
+    margin-top: 2px;
+    margin-left: 0px;
+    font-size: 12px;
+    color: #000000;
+}
+
+/* Đô thị loại 3 */
+.T3_dothi_label {
+    position: relative;
+    top: -3px;
+    left: 4px;
+    display: inline-block;
+    font-size: 8px;
+    font-weight: bolder;
+    font-style: italic;
+    text-align: center;
+    color: #000000;
+}
+
+.T3_dothi_divIcon {
+    border-radius: 50%;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    width: 15px !important;
+    height: 15px !important;
+    text-align: center;
+}
+
+.T3_dothi_symbol {
+    margin-top: 0px;
+    margin-left: 0px;
+    font-size: 13px;
+    color: #000000;
+}
+
+/* Đô thị loại 4 */
+.T4_dothi_label {
+    position: relative;
+    top: -4px;
+    left: 4px;
+    display: inline-block;
+    font-size: 8px;
+    font-weight: lighter;
+    font-style: italic;
+    text-align: center;
+    color: #000000;
+}
+
+.T4_dothi_divIcon {
+    border-radius: 50%;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    width: 16px !important;
+    height: 16px !important;
+    text-align: center;
+}
+
+.T4_dothi_symbol {
+    margin-top: 1px;
+    margin-left: 0px;
+    font-size: 11px;
+    color: #000000;
+}
+
+/*** Legend Styles ***/
+.legend-content, .chart-content {
+    width: fit-content;
+    position: sticky;
+    background-color: #ffffff;
+    border: 1px #F4AACD solid;
+}
+
+.legend, .chart {
+    padding: 5px;
+}
+
+.container_rec {
+    position: relative;
+    width: fit-content;
+    margin: 0;
+}
+
+.title-legend-chart {
+    text-align: center;
+    font-family: "Arial";
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+    margin: 5px;
+}
+
+/*-- Áp dụng cho Tên chú thích --*/
+.subtitle-chart {
+    font-family: "Arial";
+    text-align: center;
+    margin: 5px;
+}
+
+.label_legend_rec, .label_legend_poi, .label_legend_poi_fa, .label_legend_symbol {
+    color: black;
+    font-weight: normal;
+    font-family: "Arial";
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.label_legend_poi_fa {
+    font-family: "Times New Roman" !important;
+}
+
+.label_legend_symbol {
+    position: absolute;
+    margin-top: 21px;
+    margin-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/*-- Áp dụng cho Polygon --*/
+.rec {
+    position: absolute;
+    border: 1px solid;
+    height: 20px;
+    width: 50px;
+    z-index: -1;
+}
+
+/*-- Áp dụng cho Point --*/
+.poi {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    background-color: #ffffff;
+    border-color: #000000;
+    z-index: -1;
+}
+
+.fontaws_poi {
+    margin-left: 24px;
+    margin-top: 2px;
+    width: 15px;
+    height: 15px;
+    font-size: 20px;
+}
+
+.overlay_poi {
+    position: absolute;
+    background-color: #ffffff;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    z-index: -2;
+    opacity: 0.5;
+    margin-left: 1px;
+    margin-top: 10px;
+    border-width: 1.5px;
+    border-style: solid;
+}
+/*-- Chia đôi thẻ div legend --*/
+.col_legend {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row_legend:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*** Chart ***/
+.chart {
+    padding-left: 25px;
+    padding-right: 20px;
+    /*overflow-y: auto;
+    height: 325px;*/
+    /*** Lật thẻ Div, không có sẽ chỉ lật 1 thẻ ***/
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.chart div {
+    backface-visibility: hidden;
+}
+
+.chart .chart_back {
+    position: absolute;
+    margin-top: -115%;
+    margin-left: -5%;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.chart.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Chuyên đề Sông ngòi */
+#pie_chart-river {
+    width: 200px;
+    height: 200px;
+    margin-left: 25%;
+    margin-top: -10%;
+    margin-bottom: -5%;
+}
+
+#line_chart-river {
+    width: 510px;
+    height: 200px;
+    margin-left: 0;
+    margin-right: -110px;
+    margin-top: -1%;
+    margin-bottom: 0;
+}
+
+/* Chuyên đề Dân số */
+#col_chart-pop {
+    width: 400px;
+    height: 200px;
+    margin-left: 25px;
+    margin-top: -1%;
+    margin-bottom: 0;
+}
+
+#area_chart-pop {
+    width: 500px;
+    height: 250px;
+    margin-left: -40px;
+    margin-top: -1%;
+    margin-bottom: 0;
+}
+
+#pyramid_09, #pyramid_19 {
+    position: absolute;
+    margin-top: -10px;
+    width: 200px;
+    height: 540px;
+}
+
+#pyramid_09 {
+    margin-left: 10px;
+}
+
+#pyramid_19 {
+    margin-left: 285px;
+}
+
+#pyramidchart_axes {
+    position: absolute;
+    margin-left: 230px;
+    margin-top: 0px;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+#pyramidchart_axes p {
+    margin-left: 0px;
+    margin-top: 3px;
+    margin-right: 0;
+    margin-bottom: 3px;
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    text-align: center;
+}
+/* Chuyên đề Kinh tế */
+.amcharts-amexport-menu {
+    display: none !important;
+}
+
+#line_bar_gdp_chart {
+    width: 450px;
+    height: 250px;
+    margin-left: 5px;
+}
+
+#area_gdp_chart {
+    width: 450px;
+    height: 250px;
+    margin-left: -10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* Chuyên đề Du lịch */
+#linebarStacked_dulich_chart {
+    width: 500px;
+    height: 350px;
+    margin-left: 5px;
+}
+
+#pie_chart_dulich {
+    width: 500px;
+    height: 260px;
+}
+/* Chuyên đề Lâm Nghiệp */
+#col_chart-lamnghiep {
+    width: 400px;
+    height: 400px;
+    margin-left: 25px;
+    margin-top: -1%;
+    margin-bottom: 0;
+}
+/* Chuyên đề Thủy Sản */
+#col_chart-thuysan {
+    width: 400px;
+    height: 400px;
+    margin-left: 25px;
+    margin-top: -1%;
+    margin-bottom: 0;
+}
