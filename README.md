@@ -17,7 +17,7 @@
  + Có nên làm legend và chart bật tắt từng thành phần không? (Pending) ==> Bỏ qua
  + Loại bỏ logo AmChart (Done)
  + Cần tối ưu hóa (Pending)
- + Chuyển sang tile vector (mapbox hoặc tương tự) để giải quyết bài toán dữ liệu lớn (trên 10mb)
+ + Chuyển sang tile vector (mapbox hoặc tương tự) để giải quyết bài toán dữ liệu lớn (dự tính trên 1mb sẽ tile dữ liệu)
  
 ### Khó khăn phát sinh:
  + Dữ liệu lên đến hơn 700mb ==> Úp github lên không nổi ==> Chuyển bộ dữ liệu sang 1 nơi khác (không để chung với code)
