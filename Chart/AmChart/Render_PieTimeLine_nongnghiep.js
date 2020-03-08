@@ -8,15 +8,15 @@ function render_pie_TimeLine_nongnghiep(div_id, data_chart) {
         chart.data = [
             {
                 "sector": "Nông nghiệp",
-                "size": 129017.7
+                "size": 129140.5
             },
             {
                 "sector": "Lâm nghiệp",
-                "size": 7675.7
+                "size": 7673.9
             },
             {
                 "sector": "Thủy sản",
-                "size": 26620.1
+                "size": 26498.9
             }
         ];
         chart.fontSize = 13;
@@ -86,7 +86,7 @@ function render_pie_TimeLine_nongnghiep(div_id, data_chart) {
             label.text = currentYear;
             var data = chartData[currentYear];
             currentYear++;
-            if (currentYear > 2002)
+            if (currentYear > 2007)
                 currentYear = 2000;
             return data;
         }
