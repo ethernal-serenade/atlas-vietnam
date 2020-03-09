@@ -6,7 +6,7 @@
     <meta content="" name="description">
     <meta content="Tooplate" name="author">
 
-    <title>Kinh tế chung Việt Nam</title>
+    <title>Chăn nuôi Việt Nam</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
@@ -37,25 +37,16 @@
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap-switch-button.min.js"></script>
 
+    <!-- Chart JS NVD3 -->
+    <script src="../../Chart/d3.js"></script>
+    <script src="../../Chart/nv.d3.js"></script>
+    <script src="../../Chart/stream_layers.js"></script>
+
     <!-- Additional Scripts -->
     <script src="../../assets/js/owl.js"></script>
     <script src="../../assets/js/accordations.js"></script>
     <script src="../../assets/js/screenfull.js"></script>
     <script src="../../assets/js/main.js"></script>
-
-    <!-- Chart JS NVD3-->
-    <script src="../../Chart/d3.js"></script>
-    <script src="../../Chart/nv.d3.js"></script>
-    <script src="../../Chart/stream_layers.js"></script>
-
-    <!-- AmChart JS -->
-    <script src="../../Chart/AmChart/core.js"></script>
-    <script src="../../Chart/AmChart/charts.js"></script>
-    <script src="../../Chart/AmChart/maps.js"></script>
-    <script src="../../Chart/AmChart/animated.js"></script>
-
-    <!-- Custom Chart using AmChart -->
-    <script src="../../Chart/AmChart/Render_LineBar_kinhte.js"></script>
 
     <!-- Map Scripts -->
     <script src="../assets_map/js/leaflet.js"></script>
@@ -89,11 +80,22 @@
 <div class="nav-home">
     <ul>
         <li><a href="../../index.html">Trang chủ</a></li>
+        <li><a href="nongnghiep.html">Nông nghiệp chung</a></li>
+        <li class="nav-dropdown">
+            <a class="nav-dropmain">Nông nghiệp
+                <i class="fa fa-caret-down"></i>
+            </a>
+            <div class="nav-dropdown-content">
+                <a href="channuoi.html">Chăn nuôi</a>
+                <a href="caycongnghiep.html">Cây công nghiệp</a>
+                <a href="lua.html">Lúa</a>
+            </div>
+        </li>
         <li>
             <p>Bản đồ chuyên đề:</p>
         </li>
         <li>
-            <span>Kinh tế chung</span>
+            <span>Chăn nuôi</span>
         </li>
     </ul>
 </div>
@@ -102,15 +104,15 @@
     <p class="tile-data-map">Bật tắt dữ liệu bản đồ</p>
     <div class="button-item">
         <div class="switch-buton">
-            <input id="cuakhau_data" checked type="checkbox" data-toggle="switchbutton">
+            <input id="channuoi_data" checked type="checkbox" data-toggle="switchbutton">
         </div>
-        <label class="nav-titles">Cửa khẩu</label>
+        <label class="nav-titles" style="margin-top: -38px">Sản lượng thịt hơi <br> của các tỉnh</label>
     </div>
     <div class="button-item">
         <div class="switch-buton">
-            <input id="cangbien_data" checked type="checkbox" data-toggle="switchbutton">
+            <input id="channuoichart_data" checked type="checkbox" data-toggle="switchbutton">
         </div>
-        <label class="nav-titles">Cảng biển</label>
+        <label class="nav-titles" style="margin-top: -38px">Số lượng gia súc <br> gia cầm của các tỉnh</label>
     </div>
     <p class="tile-ctr-map">Bật tắt thành phần bản đồ</p>
     <div class="button-item">
@@ -139,7 +141,7 @@
 </div>
 
 <!-- Map Scripts -->
-<script src="MapScript.js"></script>
+<script src="channuoi_MapScript.js"></script>
 
 <!-- Additional Scripts -->
 <script type="text/javascript">
