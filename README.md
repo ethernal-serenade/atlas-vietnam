@@ -3,21 +3,25 @@
 ### Chuyên đề:
  + Sông ngòi: done (21 đến 22/2)
  + Dân số: done (23/2 đến 26/2)
- + Kinh tế: pending 80% (26/2 đến 28/2) - đã khai thác hết dữ liệu về kinh tế
+ + Kinh tế: done 80% (26/2 đến 28/2) - đã khai thác hết dữ liệu về kinh tế
  + Du lịch: done (28/2 đến 1/3)
  + Địa chất - khoáng sản: [pending (1/3 đến 3/3) - đợt 1], [đợt 2]
  + Thổ nhưỡng: done (3/3)
  + Lâm nghiệp: done (3/3)
  + Thủy sản: done (3/3)
- + Sinh vật: done (4/3) - đã khai thác hết dữ liệu về sinh vật (hiện tại chưa có động vật)
+ + Sinh vật: done 80% (4/3) - đã khai thác hết dữ liệu về sinh vật (hiện tại chưa có động vật)
  + Nông nghiệp: done (4/3)
+    + Sub Chăn nuôi: done 80% (8/3 đến 9/3) - đã khai thác hết dữ liệu về chăn nuôi
+    + Sub Cây công nghiệp: done 80% (9/3 đến 10/3) - đã khai thác hết dữ liệu về cây công nghiệp
+    + Sub Lúa: done (9/3)
  + Miền tự nhiên: done (5/3 dến 7/3)
 
 ### Ý tưởng:
  + Có nên làm legend và chart bật tắt từng thành phần không? (Pending) ==> Bỏ qua
  + Loại bỏ logo AmChart (Done)
  + Cần tối ưu hóa (Pending)
- + Chuyển sang tile vector (mapbox hoặc tương tự) để giải quyết bài toán dữ liệu lớn (trên 10mb)
+ + Chuyển sang tile vector (mapbox hoặc tương tự) để giải quyết bài toán dữ liệu lớn (dự tính trên 1mb sẽ tile dữ liệu)
+ + Có nên áp dụng AmChart cho từng điểm? (Pending) ==> leaflet minichart ở phần maxValue không để auto
  
 ### Khó khăn phát sinh:
  + Dữ liệu lên đến hơn 700mb ==> Úp github lên không nổi ==> Chuyển bộ dữ liệu sang 1 nơi khác (không để chung với code)
@@ -25,7 +29,7 @@
  + Chuyển path của data sang địa chỉ mới, chia làm 2 loại là spatial_data và chart_data (hiện tại mới chỉ là local)
     + Đối với spatial_data: `../../../WebAtlas_VietNam_data/[tên chuyên đề]/spatial_data/[filename].geojson`
     + Đối với chart_data: `../../../WebAtlas_VietNam_data/[tên chuyên đề]/chart_data/[filename].json`
-    + Đối với các dữ liệu sử dụng chung trong nhiều chuyên đề (như ranh giới tỉnh hay ranh giới quốc gia):
+    + Đối với các dữ liệu sử dụng chung trong nhiều chuyên đề (ranh giới tỉnh, ranh giới quốc gia, centroids tỉnh):
     `../../../WebAtlas_VietNam_data/general_spatial_data/[filename].geojson`
 
 ### Note
@@ -110,3 +114,4 @@
  + Control Specific data in 1 layer: https://next.plnkr.co/edit/H6E6q0vKwb3RPOZBWs27?p=preview&preview
  + Disable Control Layer and Container: https://gis.stackexchange.com/questions/259134/how-to-disable-leaflet-layers-control
  + Leaflet Gpx and Leaflet Elevation: https://raruto.github.io/leaflet-elevation/examples/leaflet-elevation_hoverable-tracks.html
+ + Date Axis Interval: https://codepen.io/team/amcharts/pen/gOOZdvp?editors=0010

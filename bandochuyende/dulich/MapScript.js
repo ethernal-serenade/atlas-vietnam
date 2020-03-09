@@ -404,7 +404,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/dulich/spatial_data/diem_rung_khubaoto
                                 /*-- Pie Chart have Series --*/
                                 $.getJSON("../../../WebAtlas_VietNam_data/dulich/chart_data/dulich_Pie_timeline.json", function (dulich_Pie) {
                                     //console.log(dulich_Pie);
-                                    render_pie_TimeLine("pie_chart_dulich", dulich_Pie)
+                                    render_pie_TimeLine_dulich("pie_chart_dulich", dulich_Pie)
                                 })
 
                                 div.innerHTML =
@@ -432,6 +432,13 @@ $.getJSON("../../../WebAtlas_VietNam_data/dulich/spatial_data/diem_rung_khubaoto
                                     map.addControl(dulich_chart);
                                 } else {
                                     map.removeControl(dulich_chart);
+                                }
+                            });
+                            $('#switch_legend').change(function () {
+                                if ($(this).prop('checked')) {
+                                    map.addControl(dulich_legend);
+                                } else {
+                                    map.removeControl(dulich_legend);
                                 }
                             });
 

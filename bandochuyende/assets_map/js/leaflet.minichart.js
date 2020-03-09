@@ -2738,13 +2738,15 @@ function axis(orient, scale) {
 
     path = path.merge(path.enter().insert("path", ".tick")
         .attr("class", "domain")
-        .attr("stroke", "#000"));
+        .attr("stroke", "#000")
+    );
 
     tick = tick.merge(tickEnter);
 
     line = line.merge(tickEnter.append("line")
         .attr("stroke", "#000")
-        .attr(x + "2", k * tickSizeInner));
+        .attr(x + "2", k * tickSizeInner)
+    );
 
     text = text.merge(tickEnter.append("text")
         .attr("fill", "#000")

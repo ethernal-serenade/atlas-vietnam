@@ -1,3 +1,8 @@
+/*** Leaflet minichart ***/
+line {
+    stroke: transparent !important;
+}
+
 /*** Leaflet Elevation Custom***/
 .leaflet-tooltip {
     font-weight: 700;
@@ -142,12 +147,51 @@ tspan {
     font-family: 'Charm', bold;
     margin: 0;
     padding-left: 50px;
+    padding-right: 16px;
     text-decoration: none;
 }
 
-.nav-home li a:hover {
+.nav-home li a:hover, .nav-home li .nav-dropmain:hover {
     color: white;
     background-color: #ff0716;
+}
+
+/*** Navbar Home Dropdown ***/
+.nav-dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.nav-dropdown .nav-dropmain {
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.nav-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #99CDFF;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.nav-dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.nav-dropdown:hover .nav-dropdown-content {
+    display: block;
 }
 
 /*** Nav Map ***/
@@ -716,4 +760,53 @@ tspan {
     margin-left: 25px;
     margin-top: -1%;
     margin-bottom: 0;
+}
+/* Chuyên đề Nông nghiệp */
+#pie_chart_nongnghiep {
+    width: 450px;
+    height: 200px;
+}
+/* Chăn nuôi */
+#area_chart_channuoi_1, #area_chart_channuoi_2 {
+    width: 400px;
+    height: 200px;
+    margin-left: -20px;
+    margin-top: -1%;
+    margin-bottom: 0;
+}
+/* Lúa */
+#col_chart_luongthuc {
+    width: 400px;
+    height: 250px;
+    margin-left: 30px;
+    margin-top: -1%;
+    margin-bottom: 0;
+}
+
+#line_bar_dtsl_lua_chart {
+    width: 450px;
+    height: 250px;
+    margin-left: 5px;
+}
+/* Cây công nghiệp */
+#col_chart_caycongnghiep {
+    width: 400px;
+    height: 250px;
+    margin-left: 40px;
+    margin-top: -1%;
+    margin-bottom: 0;
+}
+
+#col_chart_dt_caycongnghiep {
+    width: 450px;
+    height: 500px;
+    margin-left: 40px;
+    margin-top: -1%;
+    margin-bottom: 0;
+}
+
+#line_bar_dtsl_caycongnghiep_chart {
+    width: 450px;
+    height: 250px;
+    margin-left: 5px;
 }
