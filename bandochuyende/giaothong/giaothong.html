@@ -6,7 +6,7 @@
     <meta content="" name="description">
     <meta content="Tooplate" name="author">
 
-    <title>Kinh tế chung Việt Nam</title>
+    <title>Giao thông Việt Nam</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
@@ -42,20 +42,6 @@
     <script src="../../assets/js/accordations.js"></script>
     <script src="../../assets/js/screenfull.js"></script>
     <script src="../../assets/js/main.js"></script>
-
-    <!-- Chart JS NVD3-->
-    <script src="../../Chart/d3.js"></script>
-    <script src="../../Chart/nv.d3.js"></script>
-    <script src="../../Chart/stream_layers.js"></script>
-
-    <!-- AmChart JS -->
-    <script src="../../Chart/AmChart/core.js"></script>
-    <script src="../../Chart/AmChart/charts.js"></script>
-    <script src="../../Chart/AmChart/maps.js"></script>
-    <script src="../../Chart/AmChart/animated.js"></script>
-
-    <!-- Custom Chart using AmChart -->
-    <script src="../../Chart/AmChart/Render_LineBar_kinhte.js"></script>
 
     <!-- Map Scripts -->
     <script src="../assets_map/js/leaflet.js"></script>
@@ -93,7 +79,7 @@
             <p>Bản đồ chuyên đề:</p>
         </li>
         <li>
-            <span>Kinh tế chung</span>
+            <span>Giao thông</span>
         </li>
     </ul>
 </div>
@@ -114,6 +100,12 @@
     </div>
     <div class="button-item">
         <div class="switch-buton">
+            <input id="duongbien_data" checked type="checkbox" data-toggle="switchbutton">
+        </div>
+        <label class="nav-titles">Đường biển</label>
+    </div>
+    <div class="button-item">
+        <div class="switch-buton">
             <input id="cuakhau_data" checked type="checkbox" data-toggle="switchbutton">
         </div>
         <label class="nav-titles">Cửa khẩu</label>
@@ -123,6 +115,12 @@
             <input id="cangbien_data" checked type="checkbox" data-toggle="switchbutton">
         </div>
         <label class="nav-titles">Cảng biển</label>
+    </div>
+    <div class="button-item">
+        <div class="switch-buton">
+            <input id="sanbay_data" checked type="checkbox" data-toggle="switchbutton">
+        </div>
+        <label class="nav-titles">Sân bay</label>
     </div>
     <p class="tile-ctr-map">Bật tắt thành phần bản đồ</p>
     <div class="button-item">

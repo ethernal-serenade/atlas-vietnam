@@ -33,7 +33,7 @@
     `../../../WebAtlas_VietNam_data/general_spatial_data/[filename].geojson`
 
 ### Note
- + Interactive Map: https://leafletjs.com/examples/choropleth/
+ + Interactive Choropleth Map: https://leafletjs.com/examples/choropleth/
  + Sử dụng leaflet_textPath để label lớp sông lượn theo tuyến sông
  + Stacked/Group Chart: http://nvd3.org/examples/multiBar.html
     + Cấu trúc file json:
