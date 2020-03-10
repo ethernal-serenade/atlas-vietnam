@@ -76,20 +76,6 @@ $.getJSON("../../../WebAtlas_VietNam_data/kinhte/spatial_data/cangbien.geojson",
                                     layer.bindPopup("<span style='font-weight: bold; font-family: Arial'>Tên tuyến " +
                                         feat.properties.ref + "</span>");
                                 }
-                                /*onEachFeature: function (feat, layer) {
-                                    layer.setText(feat.properties.ref, {
-                                        center: true,
-                                        attributes: {
-                                            fill: "#ff0012",
-                                            'background-color': '#ffffff',
-                                    'border-color': '#000000',
-                                    'border-width': '1px',
-                                    'border-style': 'solid',
-                                            'font-size': '9px',
-                                            'font-style': 'normal'
-                                        }
-                                    })
-                                }*/
                             });
 
                             /*** Đường sắt ***/

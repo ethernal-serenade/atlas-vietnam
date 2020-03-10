@@ -15,6 +15,7 @@
     + Sub Cây công nghiệp: done 80% (9/3 đến 10/3) - đã khai thác hết dữ liệu về cây công nghiệp
     + Sub Lúa: done (9/3)
  + Miền tự nhiên: done (5/3 dến 7/3)
+ + Giao thông: done (10/3)
 
 ### Ý tưởng:
  + Có nên làm legend và chart bật tắt từng thành phần không? (Pending) ==> Bỏ qua
@@ -25,6 +26,7 @@
  
 ### Khó khăn phát sinh:
  + Dữ liệu lên đến hơn 700mb ==> Úp github lên không nổi ==> Chuyển bộ dữ liệu sang 1 nơi khác (không để chung với code)
+ + Chuyển config file trong xampp sang ổ đĩa khác: https://stackoverflow.com/questions/18902887/how-to-configuring-a-xampp-web-server-for-different-root-directory
  + Đóng lại github và link repo ==> Đổi từ public sang private (7/3)
  + Chuyển path của data sang địa chỉ mới, chia làm 2 loại là spatial_data và chart_data (hiện tại mới chỉ là local)
     + Đối với spatial_data: `../../../WebAtlas_VietNam_data/[tên chuyên đề]/spatial_data/[filename].geojson`
