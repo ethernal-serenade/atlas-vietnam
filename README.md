@@ -19,7 +19,7 @@
  + Miền tự nhiên: done (5/3 dến 7/3)
  + Giao thông: done (10/3)
  + Hình thể: done (12/3)
- + Hành chính: done (12/3)
+ + Hành chính: done (12/3) - lớp nền upload trên Geoserver
 
 ### Ý tưởng:
  + Có nên làm legend và chart bật tắt từng thành phần không? (Pending) ==> Bỏ qua
