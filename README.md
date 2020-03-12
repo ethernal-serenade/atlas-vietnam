@@ -5,7 +5,9 @@
  + Dân số: done (23/2 đến 26/2)
  + Kinh tế: done 80% (26/2 đến 28/2) - đã khai thác hết dữ liệu về kinh tế
  + Du lịch: done (28/2 đến 1/3)
- + Địa chất - khoáng sản: [pending (1/3 đến 3/3) - đợt 1], [đợt 2]
+ + Địa chất - khoáng sản: 
+    + Đợt 1: pending (1/3 đến 3/3)
+    + Đợt 2: done 80% (10/3 đến 12/3) - đã khai thác hết dữ liệu về khoáng sản
  + Thổ nhưỡng: done (3/3)
  + Lâm nghiệp: done (3/3)
  + Thủy sản: done (3/3)
@@ -15,6 +17,7 @@
     + Sub Cây công nghiệp: done 80% (9/3 đến 10/3) - đã khai thác hết dữ liệu về cây công nghiệp
     + Sub Lúa: done (9/3)
  + Miền tự nhiên: done (5/3 dến 7/3)
+ + Giao thông: done (10/3)
 
 ### Ý tưởng:
  + Có nên làm legend và chart bật tắt từng thành phần không? (Pending) ==> Bỏ qua
@@ -25,15 +28,19 @@
  
 ### Khó khăn phát sinh:
  + Dữ liệu lên đến hơn 700mb ==> Úp github lên không nổi ==> Chuyển bộ dữ liệu sang 1 nơi khác (không để chung với code)
+ + Chuyển config file trong xampp sang ổ đĩa khác: https://stackoverflow.com/questions/18902887/how-to-configuring-a-xampp-web-server-for-different-root-directory
  + Đóng lại github và link repo ==> Đổi từ public sang private (7/3)
  + Chuyển path của data sang địa chỉ mới, chia làm 2 loại là spatial_data và chart_data (hiện tại mới chỉ là local)
     + Đối với spatial_data: `../../../WebAtlas_VietNam_data/[tên chuyên đề]/spatial_data/[filename].geojson`
     + Đối với chart_data: `../../../WebAtlas_VietNam_data/[tên chuyên đề]/chart_data/[filename].json`
     + Đối với các dữ liệu sử dụng chung trong nhiều chuyên đề (ranh giới tỉnh, ranh giới quốc gia, centroids tỉnh):
     `../../../WebAtlas_VietNam_data/general_spatial_data/[filename].geojson`
+ + Chuyển dữ liệu sang Vector Tiles: Pending
 
 ### Note
- + Interactive Map: https://leafletjs.com/examples/choropleth/
+ + Vector Tiles: https://github.com/nguyenduclam/Leaflet-Style-Vector-Tiles
+ + Interactive Choropleth Map: https://leafletjs.com/examples/choropleth/
+ + Interactive Choropleth Map (more feature unique): https://www.e-education.psu.edu/geog585/node/781
  + Sử dụng leaflet_textPath để label lớp sông lượn theo tuyến sông
  + Stacked/Group Chart: http://nvd3.org/examples/multiBar.html
     + Cấu trúc file json:

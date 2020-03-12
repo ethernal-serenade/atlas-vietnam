@@ -64,7 +64,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/kinhte/spatial_data/cangbien.geojson",
                             });
 
                             /*** Đường quốc lộ ***/
-                            /*var view_quoclo = L.geoJSON(quoclo, {
+                            var view_quoclo = L.geoJSON(quoclo, {
                                 style: function (feat) {
                                     return {
                                         stroke: true,
@@ -73,39 +73,21 @@ $.getJSON("../../../WebAtlas_VietNam_data/kinhte/spatial_data/cangbien.geojson",
                                     }
                                 },
                                 onEachFeature: function (feat, layer) {
-                                    layer.setText(feat.properties.ref, {
-                                        center: true,
-                                        attributes: {
-                                            fill: "#ff0012",
-                                            'font-size': '9px',
-                                            'font-style': 'italic'
-                                        }
-                                    })
+                                    layer.bindPopup("<span style='font-weight: bold; font-family: Arial'>Tên tuyến " +
+                                        feat.properties.ref + "</span>");
                                 }
-                            });*/
+                            });
 
                             /*** Đường sắt ***/
-                            /*var view_duongsat = L.geoJSON(duongsat, {
+                            var view_duongsat = L.geoJSON(duongsat, {
                                 style: function (feat) {
                                     return {
-                                        //stroke: true,
+                                        stroke: true,
                                         color: "#000000",
                                         weight: 1,
-                                        //dashArray: '6, 6',
                                     }
-                                },
-                                onEachFeature: function (latlng, layer) {
-                                    layer.setText("- ", {
-                                        repeat: true,
-                                        offset: 4,
-                                        attributes: {
-                                            fill: "#ffffff",
-                                            'font-size': '20',
-                                            'font-style': 'bold'
-                                        }
-                                    })
                                 }
-                            });*/
+                            });
 
                             /*** Cảng biển ***/
                             var view_cang_bien = L.geoJSON(cangbien, {
@@ -348,10 +330,24 @@ $.getJSON("../../../WebAtlas_VietNam_data/kinhte/spatial_data/cangbien.geojson",
 
                             view_cang_bien.addTo(map);
                             view_cua_khau.addTo(map);
-                            /*view_duongsat.addTo(map);
-                            view_quoclo.addTo(map);*/
+                            view_duongsat.addTo(map);
+                            view_quoclo.addTo(map);
 
                             /*--- Control Layer Data ---*/
+                            $('#quoclo_data').change(function () {
+                                if ($(this).prop('checked')) {
+                                    map.addLayer(view_quoclo);
+                                } else {
+                                    map.removeLayer(view_quoclo);
+                                }
+                            });
+                            $('#duongsat_data').change(function () {
+                                if ($(this).prop('checked')) {
+                                    map.addLayer(view_duongsat);
+                                } else {
+                                    map.removeLayer(view_duongsat);
+                                }
+                            });
                             $('#cuakhau_data').change(function () {
                                 if ($(this).prop('checked')) {
                                     map.addLayer(view_cua_khau);

@@ -285,7 +285,7 @@ tspan {
     font-weight: bold;
 }
 
-/* Chuyên đề Kinh tế */
+/* Chuyên đề Kinh tế và Giao thông*/
 /* Cảng biển */
 .cangbien_label {
     position: relative;
@@ -317,6 +317,65 @@ tspan {
     font-size: 20px;
     color: #3078f2;
 }
+
+/* Sân bay nội dịa */
+.sanbaynd_label {
+    position: relative;
+    top: -10px;
+    left: 7px;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: lighter;
+    font-style: italic;
+    text-align: center;
+    color: #000000;
+}
+
+.sanbaynd_divIcon {
+    background-color: transparent;
+    text-shadow: 1 1 2px #181818e3;
+    width: 30px !important;
+    height: 30px !important;
+    text-align: center;
+}
+
+.sanbaynd_symbol {
+    margin-top: 4px;
+    margin-left: 0px;
+    font-size: 20px;
+    color: #000000;
+}
+
+/* Sân bay quốc tế */
+.sanbayqt_label {
+    position: relative;
+    top: -5px;
+    left: 7px;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: #ff1a4a;
+}
+
+.sanbayqt_divIcon {
+    background-color: transparent;
+    text-shadow: 1 1 2px #181818e3;
+    width: 30px !important;
+    height: 30px !important;
+    text-align: center;
+}
+
+.sanbayqt_symbol {
+    margin-top: 4px;
+    margin-left: 0px;
+    font-size: 20px;
+    color: #f30024;
+}
+
 /* Cửa khẩu */
 .cuakhau_label {
     position: relative;
@@ -510,6 +569,59 @@ tspan {
     color: #000000;
 }
 
+/* Chuyên đề Địa chất khoáng sản */
+.mokhoangsan_DivIcon {
+    border-radius: 0%;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border: 1px solid black;
+    width: 30px !important;
+    height: 25px !important;
+    text-align: center;
+}
+
+.copper_symbol {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #ff6b2f;
+}
+
+.chromite_symbol {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #80857a;
+}
+
+.zinc_symbol {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #785a5f;
+}
+
+.iron_symbol {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #ff004b;
+}
+
+.tin_symbol {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #a3a4ff;
+}
+
+.titanium_symbol {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #7414ff;
+}
+
 /*** Legend Styles ***/
 .legend-content, .chart-content {
     width: fit-content;
@@ -616,6 +728,17 @@ tspan {
     content: "";
     display: table;
     clear: both;
+}
+/*-- Symbol Text --*/
+.text_symbol {
+    display: inline;
+    font-style: italic;
+    font-size: 30px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /*** Chart ***/
