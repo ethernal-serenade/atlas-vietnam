@@ -18,6 +18,8 @@
     + Sub Lúa: done (9/3)
  + Miền tự nhiên: done (5/3 dến 7/3)
  + Giao thông: done (10/3)
+ + Hình thể: done (12/3)
+ + Hành chính: done (12/3)
 
 ### Ý tưởng:
  + Có nên làm legend và chart bật tắt từng thành phần không? (Pending) ==> Bỏ qua
@@ -25,6 +27,7 @@
  + Cần tối ưu hóa (Pending)
  + Chuyển sang tile vector (mapbox hoặc tương tự) để giải quyết bài toán dữ liệu lớn (dự tính trên 1mb sẽ tile dữ liệu)
  + Có nên áp dụng AmChart cho từng điểm? (Pending) ==> leaflet minichart ở phần maxValue không để auto
+ + View 3D cho chuyên đề hình thể? (Pending)
  
 ### Khó khăn phát sinh:
  + Dữ liệu lên đến hơn 700mb ==> Úp github lên không nổi ==> Chuyển bộ dữ liệu sang 1 nơi khác (không để chung với code)

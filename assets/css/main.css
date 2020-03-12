@@ -80,7 +80,6 @@
     height: 16px;
 }
 
-
 /* MAIN CSS */
 
 @-webkit-keyframes fill {
@@ -144,8 +143,7 @@
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    /* font-family: "Times New Roman", sans-serif; */
-    font-family: 'Baloo Bhai 2', cursive;
+    font-family: "Times New Roman", sans-serif;
 }
 
 html {
@@ -178,6 +176,7 @@ nav em {
     display: block;
     margin-top: 15px;
     color: #fff;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 nav ul li a {
@@ -442,6 +441,7 @@ nav a::before {
     text-transform: uppercase;
     font-weight: 700;
     background-image: #ff8000;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 .slide-caption h2 {
@@ -450,6 +450,7 @@ nav a::before {
     text-transform: uppercase;
     font-weight: 900;
     color: #ff8000;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 
@@ -534,12 +535,14 @@ nav a::before {
     font-weight: 900;
     color: #1e1e1e;
     margin-top: 0px;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 .tabs-content span {
     font-size: 15px;
     color: #7a7a7a;
     text-transform: uppercase;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 .tabs-content p {
@@ -547,6 +550,7 @@ nav a::before {
     color: #7a7a7a;
     margin-top: 30px;
     margin-bottom: 0px;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 
@@ -582,6 +586,7 @@ nav a::before {
     font-weight: 900;
     color: #1e1e1e;
     transition: all 0.5s;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 .featured-item h6 {
@@ -589,6 +594,7 @@ nav a::before {
     font-size: 14px;
     font-weight: 900;
     margin-bottom: 0px;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 .owl-dots {
@@ -639,6 +645,7 @@ nav a::before {
     color: #fff;
     margin-top: 0px;
     margin-bottom: 50px;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 #contact input,
@@ -651,6 +658,7 @@ nav a::before {
     font-size: 14px;
     color: #fff;
     margin-bottom: 30px;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 #contact input:focus,
@@ -660,11 +668,13 @@ nav a::before {
     box-shadow: none;
     border: 1px solid rgba(250, 245, 178, 1);
     background-color: rgba(0, 0, 0, 0.1);
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 #contact textarea {
     height: 160px;
     padding: 15px;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 #contact button {
@@ -681,6 +691,7 @@ nav a::before {
     cursor: pointer;
     transition: all 0.3s;
     outline: none;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 #contact button:hover {
@@ -755,6 +766,7 @@ nav a::before {
 
     .slide-caption h2 {
         font-size: 48px;
+        font-family: 'Baloo Bhai 2', cursive;
     }
 
     .tabs-content {

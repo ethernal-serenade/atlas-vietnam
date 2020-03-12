@@ -103,7 +103,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/mientunhien/spatial_data/mientunhien.g
 
         /*** Miền tự nhiên Việt Nam ***/
         function getColor_mientunhien(d) {
-            return d == "Miền Bắc và Đông Bắc Bắc Bộ" ? "#c6ff61" :
+            return d == "Miền Bắc và Đông Bắc Bắc Bộ" ? "#88ff19" :
                 d == "Miền Tây Bắc và Bắc Trung Bộ" ? "#fffd8a" :
                     "#ffc4e2";
         }
@@ -114,7 +114,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/mientunhien/spatial_data/mientunhien.g
                 weight: 1,
                 dashArray: '10, 8',
                 color: "#ff1a4a",
-                fillOpacity: 0.25
+                fillOpacity: 0.5
             }
         }
 
