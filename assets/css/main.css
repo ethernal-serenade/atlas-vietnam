@@ -144,7 +144,8 @@
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: "Times New Roman", sans-serif;
+    /* font-family: "Times New Roman", sans-serif; */
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 html {
@@ -420,6 +421,7 @@ nav a::before {
     font-size: 100px;
     font-weight: bolder;
     font-style: italic;
+    font-family: 'Merriweather', serif;
     text-transform: uppercase;
     -webkit-background-clip: text;
     -moz-background-clip: text;

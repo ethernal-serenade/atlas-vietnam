@@ -542,11 +542,11 @@ $.getJSON("../../../WebAtlas_VietNam_data/diachatkhoangsan/spatial_data/mo_khoan
                                     //view_giankhoan.addTo(map);
 
                                     /*--- Control Layer Data ---*/
-                                    $('#mineral_data').change(function () {
+                                    $('#basedichat_data').change(function () {
                                         if ($(this).prop('checked')) {
-                                            map.addLayer(view_mokhoangsan);
+                                            map.addLayer(view_nendiachat);
                                         } else {
-                                            map.removeLayer(view_mokhoangsan);
+                                            map.removeLayer(view_nendiachat);
                                         }
                                     });
                                     $('#betramtich_data').change(function () {
@@ -570,18 +570,18 @@ $.getJSON("../../../WebAtlas_VietNam_data/diachatkhoangsan/spatial_data/mo_khoan
                                             map.removeLayer(view_dutgayvungbien);
                                         }
                                     });
-                                    $('#mineral_data').change(function () {
+                                    $('#dutgaydiachat_data').change(function () {
                                         if ($(this).prop('checked')) {
                                             map.addLayer(view_dutgaydiachat);
                                         } else {
                                             map.removeLayer(view_dutgaydiachat);
                                         }
                                     });
-                                    $('#oilgas_data').change(function () {
+                                    $('#mineral_data').change(function () {
                                         if ($(this).prop('checked')) {
-                                            map.addLayer(view_modaukhi);
+                                            map.addLayer(view_mokhoangsan);
                                         } else {
-                                            map.removeLayer(view_modaukhi);
+                                            map.removeLayer(view_mokhoangsan);
                                         }
                                     });
                                     $('#oilgas_data').change(function () {
