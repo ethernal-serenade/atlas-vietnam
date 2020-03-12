@@ -259,10 +259,17 @@ tspan {
     display: inline-block;
     font-family: Arial;
     font-size: 10px;
-    font-weight: bold;
+    font-weight: bolder;
     text-align: center;
     text-transform: uppercase;
     color: #3a47ff;
+}
+
+.VN_symbol {
+    margin-top: 4px;
+    margin-left: 0px;
+    font-size: 10px;
+    color: #ff004b;
 }
 
 /* Chuyên đề Lâm nghiệp */
