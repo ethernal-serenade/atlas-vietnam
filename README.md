@@ -5,7 +5,9 @@
  + Dân số: done (23/2 đến 26/2)
  + Kinh tế: done 80% (26/2 đến 28/2) - đã khai thác hết dữ liệu về kinh tế
  + Du lịch: done (28/2 đến 1/3)
- + Địa chất - khoáng sản: [pending (1/3 đến 3/3) - đợt 1], [đợt 2]
+ + Địa chất - khoáng sản: 
+    + Đợt 1: pending (1/3 đến 3/3)
+    + Đợt 2: done 80% (10/3 đến 12/3) - đã khai thác hết dữ liệu về khoáng sản
  + Thổ nhưỡng: done (3/3)
  + Lâm nghiệp: done (3/3)
  + Thủy sản: done (3/3)
@@ -33,9 +35,12 @@
     + Đối với chart_data: `../../../WebAtlas_VietNam_data/[tên chuyên đề]/chart_data/[filename].json`
     + Đối với các dữ liệu sử dụng chung trong nhiều chuyên đề (ranh giới tỉnh, ranh giới quốc gia, centroids tỉnh):
     `../../../WebAtlas_VietNam_data/general_spatial_data/[filename].geojson`
+ + Chuyển dữ liệu sang Vector Tiles: Pending
 
 ### Note
+ + Vector Tiles: https://github.com/nguyenduclam/Leaflet-Style-Vector-Tiles
  + Interactive Choropleth Map: https://leafletjs.com/examples/choropleth/
+ + Interactive Choropleth Map (more feature unique): https://www.e-education.psu.edu/geog585/node/781
  + Sử dụng leaflet_textPath để label lớp sông lượn theo tuyến sông
  + Stacked/Group Chart: http://nvd3.org/examples/multiBar.html
     + Cấu trúc file json:
