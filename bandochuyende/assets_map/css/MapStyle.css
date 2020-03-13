@@ -123,6 +123,7 @@ tspan {
     font-weight: bolder;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 .nav-home li p {
@@ -134,6 +135,7 @@ tspan {
     margin: 0;
     padding: 14px 16px 14px 100px;
     text-decoration: none;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 .nav-home li span {
@@ -160,6 +162,7 @@ tspan {
 .nav-dropdown {
     float: left;
     overflow: hidden;
+    font-family: 'Baloo Bhai 2', cursive
 }
 
 .nav-dropdown .nav-dropmain {

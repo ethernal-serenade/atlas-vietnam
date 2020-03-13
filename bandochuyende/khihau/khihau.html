@@ -6,7 +6,7 @@
     <meta content="" name="description">
     <meta content="Tooplate" name="author">
 
-    <title>Thủy Sản Việt Nam</title>
+    <title>Khí hậu Việt Nam</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
@@ -49,10 +49,17 @@
     <script src="../../Chart/nv.d3.js"></script>
     <script src="../../Chart/stream_layers.js"></script>
 
+    <!-- AmChart JS -->
+    <script src="../../Chart/AmChart/core.js"></script>
+    <script src="../../Chart/AmChart/charts.js"></script>
+    <script src="../../Chart/AmChart/maps.js"></script>
+    <script src="../../Chart/AmChart/animated.js"></script>
+
+    <!-- Custom Chart using AmChart -->
+
     <!-- Map Scripts -->
     <script src="../assets_map/js/leaflet.js"></script>
     <script src="../assets_map/js/leaflet-providers.js"></script>
-    <script src="../assets_map/js/leaflet.minichart.js"></script>
     <script src="../assets_map/js/leaflet.textpath.js"></script>
     <script src="../assets_map/js/Control.MiniMap.js"></script>
     <script src="../assets_map/js/rbush.js"></script>
@@ -85,7 +92,7 @@
             <p>Bản đồ chuyên đề:</p>
         </li>
         <li>
-            <span>Thủy sản</span>
+            <span>Khí hậu</span>
         </li>
     </ul>
 </div>
@@ -94,27 +101,27 @@
     <p class="tile-data-map">Bật tắt dữ liệu bản đồ</p>
     <div class="button-item">
         <div class="switch-buton">
-            <input id="thuysan_data" checked type="checkbox" data-toggle="switchbutton">
+            <input id="vungkhihau_data" type="checkbox" data-toggle="switchbutton">
         </div>
-        <label class="nav-titles">Sản lượng thủy sản</label>
+        <label class="nav-titles">Các vùng khí hậu</label>
     </div>
     <div class="button-item">
         <div class="switch-buton">
-            <input id="thuysanchart_data" checked type="checkbox" data-toggle="switchbutton">
+            <input id="temp_data" type="checkbox" data-toggle="switchbutton">
         </div>
-        <label class="nav-titles" style="margin-top: -38px">Thủy sản nuôi trồng & <br> Thủy sản khai thác</label>
+        <label class="nav-titles">Nhiệt độ</label>
     </div>
     <div class="button-item">
         <div class="switch-buton">
-            <input id="baica_data" checked type="checkbox" data-toggle="switchbutton">
+            <input id="humidity_data" type="checkbox" data-toggle="switchbutton">
         </div>
-        <label class="nav-titles">Bãi cá</label>
+        <label class="nav-titles">Độ ẩm</label>
     </div>
     <div class="button-item">
         <div class="switch-buton">
-            <input id="baitom_data" checked type="checkbox" data-toggle="switchbutton">
+            <input id="chart_temprain_data" type="checkbox" data-toggle="switchbutton">
         </div>
-        <label class="nav-titles">Bãi tôm</label>
+        <label class="nav-titles">Trạm đo khí hậu</label>
     </div>
     <p class="tile-ctr-map">Bật tắt thành phần bản đồ</p>
     <div class="button-item">

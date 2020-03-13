@@ -77,8 +77,8 @@ $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/point_dothi_2009.ge
                         if (feat.properties && feat.properties.Quan_Huyen) {
                             layer.bindPopup("<span style='color: #767676; " +
                                 "font-weight: bolder; font-family: Arial'>" + feat.properties.Quan_Huyen +
-                                ": " + "<p style='color: red; font-family: Arial'>" +
-                                feat.properties.Density_09 + " người/km²" + "</p>" +
+                                ": " + "<span style='color: red; font-family: Arial'>" +
+                                feat.properties.Density_09 + " người/km²" + "</span>" +
                                 "</span>");
                         }
                     }
