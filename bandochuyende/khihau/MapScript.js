@@ -130,6 +130,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
 
                     /*** Trạm đo nhiệt độ ***/
 
+
                     /*** Legend ***/
                     var khihau_legend = L.control({position: "topleft"});
                     khihau_legend.onAdd = map => {
