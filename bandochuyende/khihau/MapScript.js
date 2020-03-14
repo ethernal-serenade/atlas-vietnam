@@ -128,8 +128,36 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                         }
                     });
 
-                    /*** Trạm đo nhiệt độ ***/
-
+                    /*** Trạm đo nhiệt độ và lượng mưa***/
+                    var view_temp_chart = L.layerGroup();
+                    var charts = {};
+                    for (var attr in lamnghiep_point.features) {
+                        var props = lamnghiep_point.features[attr].properties;
+                        var coord = lamnghiep_point.features[attr].geometry;
+                        var data_feat = [
+                            props['ndo1'],props['ndo2'],props['ndo3'],props['ndo4'],
+                            props['ndo5'],props['ndo6'],props['ndo7'],props['ndo8'],
+                            props['ndo9'],props['ndo10'],props['ndo11'],props['ndo12']
+                        ];
+                        charts[props['tong']] = L.minichart([coord.coordinates[1], coord.coordinates[0]], {
+                            type: 'pie',
+                            data: data_feat,
+                            maxValues: 'auto',
+                            width: 25,
+                            colors: ["#ff79ad", "#7dfff8"]
+                        });
+                        charts[props['tong']].bindPopup("<div id='popup_tb'>" + "<table class='chart_data'>" +
+                            "<tbody>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Rừng tự nhiên: </td>" + "<td>" + props['rtn'] + " nghìn ha</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Rừng trồng: </td>" + "<td>" + props['rt'] + " nghìn ha</td>" +
+                            "</tr>" +
+                            "</tbody>" +
+                            "</table>" + "</div>");
+                        view_temp_chart.addLayer(charts[props['tong']]);
+                    }
 
                     /*** Legend ***/
                     var khihau_legend = L.control({position: "topleft"});

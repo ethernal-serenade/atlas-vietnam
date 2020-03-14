@@ -40,6 +40,13 @@
     + Đối với các dữ liệu sử dụng chung trong nhiều chuyên đề (ranh giới tỉnh, ranh giới quốc gia, centroids tỉnh):
     `../../../WebAtlas_VietNam_data/general_spatial_data/[filename].geojson`
  + Chuyển dữ liệu sang Vector Tiles: Pending
+ + Xóa line ở Leaflet-minichart:
+ ```
+    /*** Leaflet minichart ***/
+    line {
+        stroke: transparent !important;
+    }
+ ```
 
 ### Note
  + Vector Tiles: https://github.com/nguyenduclam/Leaflet-Style-Vector-Tiles

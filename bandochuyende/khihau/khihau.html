@@ -44,22 +44,10 @@
     <script src="../../assets/js/screenfull.js"></script>
     <script src="../../assets/js/main.js"></script>
 
-    <!-- Chart JS NVD3 -->
-    <script src="../../Chart/d3.js"></script>
-    <script src="../../Chart/nv.d3.js"></script>
-    <script src="../../Chart/stream_layers.js"></script>
-
-    <!-- AmChart JS -->
-    <script src="../../Chart/AmChart/core.js"></script>
-    <script src="../../Chart/AmChart/charts.js"></script>
-    <script src="../../Chart/AmChart/maps.js"></script>
-    <script src="../../Chart/AmChart/animated.js"></script>
-
-    <!-- Custom Chart using AmChart -->
-
     <!-- Map Scripts -->
     <script src="../assets_map/js/leaflet.js"></script>
     <script src="../assets_map/js/leaflet-providers.js"></script>
+    <script src="../assets_map/js/leaflet.minichart.js"></script>
     <script src="../assets_map/js/leaflet.textpath.js"></script>
     <script src="../assets_map/js/Control.MiniMap.js"></script>
     <script src="../assets_map/js/rbush.js"></script>
@@ -119,9 +107,15 @@
     </div>
     <div class="button-item">
         <div class="switch-buton">
-            <input id="chart_temprain_data" type="checkbox" data-toggle="switchbutton">
+            <input id="chart_temp_data" type="checkbox" data-toggle="switchbutton">
         </div>
-        <label class="nav-titles">Trạm đo khí hậu</label>
+        <label class="nav-titles">Trạm đo nhiệt độ</label>
+    </div>
+    <div class="button-item">
+        <div class="switch-buton">
+            <input id="chart_rain_data" type="checkbox" data-toggle="switchbutton">
+        </div>
+        <label class="nav-titles">Trạm đo lượng mưa</label>
     </div>
     <p class="tile-ctr-map">Bật tắt thành phần bản đồ</p>
     <div class="button-item">
