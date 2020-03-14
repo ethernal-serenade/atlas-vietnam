@@ -20,6 +20,7 @@
  + Giao thông: done (10/3)
  + Hình thể: done (12/3)
  + Hành chính: done (12/3) - lớp nền upload trên Geoserver
+ + Khí hậu: done 80% (13/3 đến 14/3) 
 
 ### Ý tưởng:
  + Có nên làm legend và chart bật tắt từng thành phần không? (Pending) ==> Bỏ qua
@@ -39,6 +40,13 @@
     + Đối với các dữ liệu sử dụng chung trong nhiều chuyên đề (ranh giới tỉnh, ranh giới quốc gia, centroids tỉnh):
     `../../../WebAtlas_VietNam_data/general_spatial_data/[filename].geojson`
  + Chuyển dữ liệu sang Vector Tiles: Pending
+ + Xóa line ở Leaflet-minichart:
+ ```
+    /*** Leaflet minichart ***/
+    line {
+        stroke: transparent !important;
+    }
+ ```
 
 ### Note
  + Vector Tiles: https://github.com/nguyenduclam/Leaflet-Style-Vector-Tiles
