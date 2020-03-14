@@ -129,34 +129,132 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                     });
 
                     /*** Trạm đo nhiệt độ và lượng mưa***/
+                    /* Nhiệt độ */
                     var view_temp_chart = L.layerGroup();
-                    var charts = {};
-                    for (var attr in lamnghiep_point.features) {
-                        var props = lamnghiep_point.features[attr].properties;
-                        var coord = lamnghiep_point.features[attr].geometry;
-                        var data_feat = [
-                            props['ndo1'],props['ndo2'],props['ndo3'],props['ndo4'],
-                            props['ndo5'],props['ndo6'],props['ndo7'],props['ndo8'],
-                            props['ndo9'],props['ndo10'],props['ndo11'],props['ndo12']
+                    var charts_temp = {};
+                    for (var attr_temp in tramdo.features) {
+                        var props_temp = tramdo.features[attr_temp].properties;
+                        var coord_temp = tramdo.features[attr_temp].geometry;
+                        var data_feat_temp = [
+                            props_temp['ndo1'],props_temp['ndo2'],props_temp['ndo3'],props_temp['ndo4'],
+                            props_temp['ndo5'],props_temp['ndo6'],props_temp['ndo7'],props_temp['ndo8'],
+                            props_temp['ndo9'],props_temp['ndo10'],props_temp['ndo11'],props_temp['ndo12']
                         ];
-                        charts[props['tong']] = L.minichart([coord.coordinates[1], coord.coordinates[0]], {
-                            type: 'pie',
-                            data: data_feat,
-                            maxValues: 'auto',
-                            width: 25,
-                            colors: ["#ff79ad", "#7dfff8"]
+                        charts_temp[props_temp['tentram']] = L.minichart([coord_temp.coordinates[1], coord_temp.coordinates[0]], {
+                            type: 'bar',
+                            data: data_feat_temp,
+                            maxValues: 35,
+                            width: 40,
+                            height: 50,
+                            colors: "#ff5454",
+                            label: "auto",
+                            labelColor: "auto"
                         });
-                        charts[props['tong']].bindPopup("<div id='popup_tb'>" + "<table class='chart_data'>" +
+                        charts_temp[props_temp['tentram']].bindPopup("<div id='popup_tb'>" + "<table class='chart_data'>" +
                             "<tbody>" +
                             "<tr>" +
-                            "<td class='key_tb'>Rừng tự nhiên: </td>" + "<td>" + props['rtn'] + " nghìn ha</td>" +
+                            "<td class='key_tb'>Tháng 1: </td>" + "<td>" + props_temp['ndo1'] + " °C</td>" +
                             "</tr>" +
                             "<tr>" +
-                            "<td class='key_tb'>Rừng trồng: </td>" + "<td>" + props['rt'] + " nghìn ha</td>" +
+                            "<td class='key_tb'>Tháng 2: </td>" + "<td>" + props_temp['ndo2'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 3: </td>" + "<td>" + props_temp['ndo3'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 4: </td>" + "<td>" + props_temp['ndo4'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 5: </td>" + "<td>" + props_temp['ndo5'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 6: </td>" + "<td>" + props_temp['ndo6'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 7: </td>" + "<td>" + props_temp['ndo7'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 8: </td>" + "<td>" + props_temp['ndo8'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 9: </td>" + "<td>" + props_temp['ndo9'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 10: </td>" + "<td>" + props_temp['ndo10'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 11: </td>" + "<td>" + props_temp['ndo11'] + " °C</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 12: </td>" + "<td>" + props_temp['ndo12'] + " °C</td>" +
                             "</tr>" +
                             "</tbody>" +
                             "</table>" + "</div>");
-                        view_temp_chart.addLayer(charts[props['tong']]);
+                        view_temp_chart.addLayer(charts_temp[props_temp['tentram']]);
+                    }
+
+                    /* Lượng mưa */
+                    var view_rain_chart = L.layerGroup();
+                    var charts_rain = {};
+                    for (var attr_rain in tramdo.features) {
+                        var props_rain = tramdo.features[attr_rain].properties;
+                        var coord_rain = tramdo.features[attr_rain].geometry;
+                        var data_feat_rain = [
+                            props_rain['lmua1'], props_rain['lmua2'], props_rain['lmua3'], props_rain['lmua4'],
+                            props_rain['lmua5'], props_rain['lmua6'], props_rain['lmua7'], props_rain['lmua8'],
+                            props_rain['lmua9'], props_rain['lmua10'], props_rain['lmua11'], props_rain['lmua12']
+                        ];
+                        charts_rain[props_rain['tentram']] = L.minichart([coord_rain.coordinates[1], coord_rain.coordinates[0]], {
+                            type: 'bar',
+                            data: data_feat_rain,
+                            maxValues: 'auto',
+                            width: 40,
+                            height: 50,
+                            colors: "#2890ff",
+                            label: "auto",
+                            labelColor: "auto"
+                        });
+                        charts_rain[props_rain['tentram']].bindPopup("<div id='popup_tb'>" + "<table class='chart_data'>" +
+                            "<tbody>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 1: </td>" + "<td>" + props_rain['lmua1'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 2: </td>" + "<td>" + props_rain['lmua2'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 3: </td>" + "<td>" + props_rain['lmua3'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 4: </td>" + "<td>" + props_rain['lmua4'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 5: </td>" + "<td>" + props_rain['lmua5'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 6: </td>" + "<td>" + props_rain['lmua6'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 7: </td>" + "<td>" + props_rain['lmua7'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 8: </td>" + "<td>" + props_rain['lmua8'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 9: </td>" + "<td>" + props_rain['lmua9'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 10: </td>" + "<td>" + props_rain['lmua10'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 11: </td>" + "<td>" + props_rain['lmua11'] + " mm</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td class='key_tb'>Tháng 12: </td>" + "<td>" + props_rain['lmua12'] + " mm</td>" +
+                            "</tr>" +
+                            "</tbody>" +
+                            "</table>" + "</div>");
+                        view_rain_chart.addLayer(charts_rain[props_rain['tentram']]);
                     }
 
                     /*** Legend ***/
@@ -164,20 +262,71 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                     khihau_legend.onAdd = map => {
                         var div = L.DomUtil.create('div', 'info legend');
 
-                        div.innerHTML = "";
+                        div.innerHTML =
+                            "<div class='legend-content' style='margin-top: 25%'>" +
+                            "<div class='legend'>" +
+                            ("<p class='title-legend-chart'>Các vùng khí hậu</p>") +
+                            ("<div class='container_rec'>" +
+                                "<div class='rec' style='background-color: #edf4be'></div>" +
+                                "<span class='label_legend_rec' style='margin-left: 60px'>" + "Vùng khí hậu Tây Bắc Bộ" + "</span>" +
+                                "</div>") + '<br>' +
+                            ("<div class='container_rec'>" +
+                                "<div class='rec' style='background-color: #77b896'></div>" +
+                                "<span class='label_legend_rec' style='margin-left: 60px'>" + "Vùng khí hậu Đông Bắc Bộ" + "</span>" +
+                                "</div>") + '<br>' +
+                            ("<div class='container_rec'>" +
+                                "<div class='rec' style='background-color: #cdebe9'></div>" +
+                                "<span class='label_legend_rec' style='margin-left: 60px'>" + "Vùng khí hậu Trung và Nam Bắc Bộ" + "</span>" +
+                                "</div>") + '<br>' +
+                            ("<div class='container_rec'>" +
+                                "<div class='rec' style='background-color: #cec347'></div>" +
+                                "<span class='label_legend_rec' style='margin-left: 60px'>" + "Vùng khí hậu Bắc Trung Bộ" + "</span>" +
+                                "</div>") + '<br>' +
+                            ("<div class='container_rec'>" +
+                                "<div class='rec' style='background-color: #fbfd92'></div>" +
+                                "<span class='label_legend_rec' style='margin-left: 60px'>" + "Vùng khí hậu Nam Trung Bộ" + "</span>" +
+                                "</div>") + '<br>' +
+                            ("<div class='container_rec'>" +
+                                "<div class='rec' style='background-color: #fac579'></div>" +
+                                "<span class='label_legend_rec' style='margin-left: 60px'>" + "Vùng khí hậu Tây Nguyên" + "</span>" +
+                                "</div>") + '<br>' +
+                            ("<div class='container_rec'>" +
+                                "<div class='rec' style='background-color: #e3846f'></div>" +
+                                "<span class='label_legend_rec' style='margin-left: 60px'>" + "Vùng khí hậu Nam Bộ" + "</span>" +
+                                "</div>") + '<br>' +
+                            ("<p class='title-legend-chart'>Biểu đồ lượng mưa và nhiệt độ</p>") +
+                            ("<div class='container_rec' style='margin-top: -5px'>" +
+                                "<img src='images/luongmua_tramdo.png' width='50' height='80' style='margin-left: 50px'>" +
+                                "<span class='label_legend_rec'>" + "Lượng mưa" + "</span>" +
+                                "</div>") +
+                            ("<div class='container_rec'>" +
+                                "<img src='images/nhietdo_tramdo.png' width='50' height='80' style='margin-left: 50px'>" +
+                                "<span class='label_legend_rec'>" + "Nhiệt độ" + "</span>" +
+                                "</div>") +
+                            "</div>" +
+                            "</div>";
                         var draggable = new L.Draggable(div);
                         draggable.enable();
                         return div;
                     };
                     khihau_legend.addTo(map);
 
-                    /*--- Control Chart & Legend ---*/
+                    /*--- Control Legend ---*/
+                    $('#switch_legend').change(function () {
+                        if ($(this).prop('checked')) {
+                            map.addControl(khihau_legend);
+                        } else {
+                            map.removeControl(khihau_legend);
+                        }
+                    });
 
-                    Hydda_base.addTo(map);
+                    CartoDB.addTo(map);
                     view_biengioi.addTo(map);
-                    //view_phanvungkhihau.addTo(map);
+                    view_phanvungkhihau.addTo(map);
                     //view_nhietdo.addTo(map);
                     //view_doam.addTo(map);
+                    //view_temp_chart.addTo(map);
+                    view_rain_chart.addTo(map);
 
                     /*--- Control Layer Data ---*/
                     $('#vungkhihau_data').change(function () {
@@ -199,6 +348,20 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                             map.addLayer(view_doam);
                         } else {
                             map.removeLayer(view_doam);
+                        }
+                    });
+                    $('#chart_temp_data').change(function () {
+                        if ($(this).prop('checked')) {
+                            map.addLayer(view_temp_chart);
+                        } else {
+                            map.removeLayer(view_temp_chart);
+                        }
+                    });
+                    $('#chart_rain_data').change(function () {
+                        if ($(this).prop('checked')) {
+                            map.addLayer(view_rain_chart);
+                        } else {
+                            map.removeLayer(view_rain_chart);
                         }
                     });
                 });

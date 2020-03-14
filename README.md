@@ -20,7 +20,7 @@
  + Giao thông: done (10/3)
  + Hình thể: done (12/3)
  + Hành chính: done (12/3) - lớp nền upload trên Geoserver
- + Khí hậu: pending (13/3)
+ + Khí hậu: done 80% (13/3 đến 14/3) 
 
 ### Ý tưởng:
  + Có nên làm legend và chart bật tắt từng thành phần không? (Pending) ==> Bỏ qua
