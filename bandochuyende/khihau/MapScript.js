@@ -13,9 +13,9 @@ var op_street = L.tileLayer.provider("OpenStreetMap"),
 });*/
 
 /*---- Dữ liệu Geojson ----*/
-$.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson", function (doam_vung) {
-    $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/nhietdo_vung.geojson", function (nhietdo_vung) {
-        $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/phanvung_khihau.geojson", function (phanvung_khihau) {
+//$.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson", function (doam_vung) {
+    //$.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/nhietdo_vung.geojson", function (nhietdo_vung) {
+        //$.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/phanvung_khihau.geojson", function (phanvung_khihau) {
             $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/tramdo.geojson", function (tramdo) {
                 $.getJSON("../../../WebAtlas_VietNam_data/general_spatial_data/vn_biengioi.geojson", function (biengioi) {
 
@@ -23,6 +23,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                     var map = L.map('mymap', {
                             center: [16.10, 108.20],
                             zoom: 6,
+                            maxZoom: 8,
                             zoomControl: true
                         }
                     );
@@ -39,7 +40,9 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                         },
                     });
 
-                    /*** Phân vùng khí hậu ***/
+                    /*** Phân vùng khí hậu (Vector Tiles) ***/
+                    var phanvung_khihau = service_tiles + "atlas_vietnam_tiles/t_phanvung_khihau/{z}/{x}/{y}.pbf";
+
                     function getColor_phanvungkhihau(d) {
                         return d == "Vùng khí hậu Tây Bắc Bộ" ? "#edf4be" :
                             d == "Vùng khí hậu Đông Bắc Bộ" ? "#77b896" :
@@ -50,16 +53,36 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                                                 "#e3846f";
                     }
 
-                    function style_phanvungkhihau(feat) {
-                        return {
-                            fillColor: getColor_phanvungkhihau(feat.properties.name_vungkh),
-                            weight: 1,
-                            dashArray: '6, 3',
-                            color: "#5656ff",
-                            fillOpacity: 0.75
+                    var style_phanvungkhihau = {
+                        phanvung_khihau: function (feat) {
+                            return {
+                                fill:true,
+                                fillColor: getColor_phanvungkhihau(feat.name_vungkh),
+                                weight: 1,
+                                dashArray: '6, 3',
+                                color: "#5656ff",
+                                fillOpacity: 0.75
+                            }
                         }
                     }
 
+                    var view_phanvungkhihau = L.vectorGrid.protobuf(phanvung_khihau, {
+                        vectorTileLayerStyles: style_phanvungkhihau,
+                        interactive: true,
+                        maxZoom: 19,
+                        maxNativeZoom: 14,
+                        getFeatureId: function (feat) {
+                            return feat.properties.name_vungkh;
+                        }
+                    })
+
+                    view_phanvungkhihau.on('click', function (e) {
+                        //console.log(e.layer.properties["Quan_Huyen"]);
+                        view_phanvungkhihau.bindPopup("<span style='color: #000000; " +
+                            "font-weight: bolder;'>" + e.layer.properties["name_vungkh"] + "</span>")
+                    })
+
+                    /* View dạng GeoJSON
                     var view_phanvungkhihau = L.geoJSON(phanvung_khihau, {
                         style: style_phanvungkhihau,
                         onEachFeature: function (feat, layer) {
@@ -68,9 +91,11 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                                     "font-weight: bolder;'>" + feat.properties.name_vungkh + "</span>");
                             }
                         }
-                    })
+                    }) */
 
-                    /*** Độ ẩm ***/
+                    /*** Độ ẩm (Vector Tiles) ***/
+                    var doam_vung = service_tiles + "atlas_vietnam_tiles/t_doam_vung/{z}/{x}/{y}.pbf";
+
                     function getColor_doam(d) {
                         return d > 86 ? "#3657a2" :
                             d > 84 ? "#2a7bd4" :
@@ -79,15 +104,36 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                                         "#aad2e5";
                     }
 
-                    function style_doam(feat) {
-                        return {
-                            fillColor: getColor_doam(feat.properties.doam_tb),
-                            weight: 0,
-                            color: "transparent",
-                            fillOpacity: 1
+                    var style_doam = {
+                        doam_vung: function (feat) {
+                            return {
+                                fill:true,
+                                fillColor: getColor_doam(feat.doam_tb),
+                                weight: 0,
+                                color: "transparent",
+                                fillOpacity: 1
+                            }
                         }
                     }
 
+                    var view_doam = L.vectorGrid.protobuf(doam_vung, {
+                        vectorTileLayerStyles: style_doam,
+                        interactive: true,
+                        maxZoom: 19,
+                        maxNativeZoom: 14,
+                        getFeatureId: function (feat) {
+                            return feat.properties.name_vungkh;
+                        }
+                    })
+
+                    view_doam.on('click', function (e) {
+                        //console.log(e.layer.properties["Quan_Huyen"]);
+                        view_doam.bindPopup("<span style='color: #4095f3; " +
+                            "font-weight: bolder; font-family: Arial'>Độ ẩm trung bình: " + e.layer.properties.doam_tb +
+                            " %</span>")
+                    })
+
+                    /* View dạng GeoJSON
                     var view_doam = L.geoJSON(doam_vung, {
                         style: style_doam,
                         onEachFeature: function (feat, layer) {
@@ -97,9 +143,11 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                                     " %</span>");
                             }
                         }
-                    });
+                    }); */
 
-                    /*** Nhiệt độ ***/
+                    /*** Nhiệt độ (Vector Tiles) ***/
+                    var nhietdo_vung = service_tiles + "atlas_vietnam_tiles/t_nhietdo_vung/{z}/{x}/{y}.pbf";
+
                     function getColor_nhietdo(d) {
                         return d > 28 ? "#fa645f" :
                             d > 24 ? "#fc783f" :
@@ -108,15 +156,36 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                                         "#fdfcd3";
                     }
 
-                    function style_nhietdo(feat) {
-                        return {
-                            fillColor: getColor_nhietdo(feat.properties.vung_tb),
-                            weight: 0,
-                            color: "transparent",
-                            fillOpacity: 1
+                    var style_nhietdo = {
+                        nhietdo_vung: function (feat) {
+                            return {
+                                fill:true,
+                                fillColor: getColor_nhietdo(feat.vung_tb),
+                                weight: 0,
+                                color: "transparent",
+                                fillOpacity: 1
+                            }
                         }
                     }
 
+                    var view_nhietdo = L.vectorGrid.protobuf(nhietdo_vung, {
+                        vectorTileLayerStyles: style_nhietdo,
+                        interactive: true,
+                        maxZoom: 19,
+                        maxNativeZoom: 14,
+                        getFeatureId: function (feat) {
+                            return feat.properties.vung_tb;
+                        }
+                    })
+
+                    view_nhietdo.on('click', function (e) {
+                        //console.log(e.layer.properties["Quan_Huyen"]);
+                        view_nhietdo.bindPopup("<span style='color: #ff004b; " +
+                            "font-weight: bolder; font-family: Arial'>Nhiệt độ trung bình: " + e.layer.properties.vung_tb +
+                            "°C</span>")
+                    })
+
+                    /* View dạng GeoJSON
                     var view_nhietdo = L.geoJSON(nhietdo_vung, {
                         style: style_nhietdo,
                         onEachFeature: function (feat, layer) {
@@ -126,7 +195,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                                     "°C</span>");
                             }
                         }
-                    });
+                    }); */
 
                     /*** Trạm đo nhiệt độ và lượng mưa***/
                     /* Nhiệt độ */
@@ -366,6 +435,6 @@ $.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson"
                     });
                 });
             })
-        })
-    })
-})
+        //})
+    //})
+//})

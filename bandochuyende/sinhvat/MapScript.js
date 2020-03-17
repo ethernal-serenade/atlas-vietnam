@@ -33,13 +33,14 @@ var deer = L.icon({
 
 /*---- Dữ liệu Geojson ----*/
 $.getJSON("../../../WebAtlas_VietNam_data/sinhvat/spatial_data/diem_rung_khubaoton.geojson", function (rung) {
-    $.getJSON("../../../WebAtlas_VietNam_data/sinhvat/spatial_data/thamthucvat.geojson", function (thucvat) {
+    //$.getJSON("../../../WebAtlas_VietNam_data/sinhvat/spatial_data/thamthucvat.geojson", function (thucvat) {
         $.getJSON("../../../WebAtlas_VietNam_data/general_spatial_data/vn_biengioi.geojson", function (biengioi) {
 
             /*** Main Map ***/
             var map = L.map('mymap', {
                     center: [16.10, 106.60],
                     zoom: 6,
+                    maxZoom: 8,
                     zoomControl: true
                 }
             );
@@ -105,8 +106,9 @@ $.getJSON("../../../WebAtlas_VietNam_data/sinhvat/spatial_data/diem_rung_khubaot
             };
             add_rung(rung, map);
 
-            /*** Thảm thực vật ***/
-            /** Can not change var d **/
+            /*** Thảm thực vật (Vector Tiles) ***/
+            var thucvat = service_tiles + "atlas_vietnam_tiles/t_thamthucvat/{z}/{x}/{y}.pbf";
+
             function getColor_thamthucvat(d) {
                 return d == "Rừng tự nhiên" ? "#00b81c" :
                     d == "Rừng thưa" ? "#8aff78" :
@@ -120,15 +122,34 @@ $.getJSON("../../../WebAtlas_VietNam_data/sinhvat/spatial_data/diem_rung_khubaot
                                                     "#0000ff";
             }
 
-            function style_thamthucvat(feat) {
-                return {
-                    fillColor: getColor_thamthucvat(feat.properties.type_ttv),
-                    weight: 0,
-                    color: "transparent",
-                    fillOpacity: 1
+            var style_thamthucvat = {
+                thamthucvat: function (feat) {
+                    return {
+                        fill: true,
+                        fillColor: getColor_thamthucvat(feat.type_ttv),
+                        weight: 0,
+                        color: "transparent",
+                        fillOpacity: 1
+                    }
                 }
             }
 
+            var view_thamthucvat = L.vectorGrid.protobuf(thucvat, {
+                vectorTileLayerStyles: style_thamthucvat,
+                interactive: true,
+                maxZoom: 19,
+                maxNativeZoom: 14,
+                getFeatureId: function (feat) {
+                    return feat.properties.type_ttv;
+                }
+            })
+
+            view_thamthucvat.on('click', function (e) {
+                view_thamthucvat.bindPopup("<span style='color: #000000; " +
+                    "font-weight: bolder;'>Loại thảm thực vật: " + e.layer.properties['type_ttv'] + "</span>")
+            })
+
+            /* View dạng GeoJSON
             var view_thamthucvat = L.geoJSON(thucvat, {
                 style: style_thamthucvat,
                 onEachFeature: function (feat, layer) {
@@ -137,7 +158,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/sinhvat/spatial_data/diem_rung_khubaot
                             "font-weight: bolder;'>Loại thảm thực vật: " + feat.properties.type_ttv + "</span>");
                     }
                 }
-            })
+            }) */
 
             /*** Legend ***/
             var thucvat_legend = L.control({position: "topleft"});
@@ -249,5 +270,5 @@ $.getJSON("../../../WebAtlas_VietNam_data/sinhvat/spatial_data/diem_rung_khubaot
                 toggleDisplay: true,
             }).addTo(map);
         })
-    })
+    //})
 })

@@ -20,7 +20,7 @@
  + Giao thông: done (10/3)
  + Hình thể: done (12/3)
  + Hành chính: done (12/3) - lớp nền upload trên Geoserver
- + Khí hậu: done 80% (13/3 đến 14/3) 
+ + Khí hậu: done 80% (13/3 đến 14/3) - đã khai thác hết dữ liệu về khí hậu
 
 ### Ý tưởng:
  + Có nên làm legend và chart bật tắt từng thành phần không? (Pending) ==> Bỏ qua
@@ -29,7 +29,7 @@
  + Chuyển sang tile vector (mapbox hoặc tương tự) để giải quyết bài toán dữ liệu lớn (dự tính trên 1mb sẽ tile dữ liệu)
  + Có nên áp dụng AmChart cho từng điểm? (Pending) ==> leaflet minichart ở phần maxValue không để auto
  + View 3D cho chuyên đề hình thể? (Pending)
- + Chuyển geoJSON sang Tiles Vector Server (15/3)
+ + Chuyển geoJSON sang Tiles Vector Server (15/3 đến 18/3)
  
 ### Khó khăn phát sinh:
  + Dữ liệu lên đến hơn 700mb ==> Úp github lên không nổi ==> Chuyển bộ dữ liệu sang 1 nơi khác (không để chung với code)
@@ -40,7 +40,7 @@
     + Đối với chart_data: `../../../WebAtlas_VietNam_data/[tên chuyên đề]/chart_data/[filename].json`
     + Đối với các dữ liệu sử dụng chung trong nhiều chuyên đề (ranh giới tỉnh, ranh giới quốc gia, centroids tỉnh):
     `../../../WebAtlas_VietNam_data/general_spatial_data/[filename].geojson`
- + Chuyển dữ liệu sang Vector Tiles: Pending
+ + Chuyển dữ liệu sang Vector Tiles: done (đường dẫn service: https://api.opengis.vn/)
  + Xóa line ở Leaflet-minichart:
  ```
     /*** Leaflet minichart ***/

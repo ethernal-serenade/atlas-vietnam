@@ -13,7 +13,7 @@ var base_vn = L.tileLayer.wms('http://localhost:8080/geoserver/vietnam_tinh_poly
     transparent: true
 });
 
-$.getJSON("../../../WebAtlas_VietNam_data/hanhchinh/spatial_data/quoclo.geojson", function (quoclo) {
+//$.getJSON("../../../WebAtlas_VietNam_data/hanhchinh/spatial_data/quoclo.geojson", function (quoclo) {
     $.getJSON("../../../WebAtlas_VietNam_data/hanhchinh/spatial_data/duongsat.geojson", function (duongsat) {
         $.getJSON("../../../WebAtlas_VietNam_data/general_spatial_data/tinh_ranhgioi.geojson", function (ranhgioi_tinh) {
             $.getJSON("../../../WebAtlas_VietNam_data/general_spatial_data/vietnam_centroids.geojson", function (vn_point) {
@@ -23,6 +23,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/hanhchinh/spatial_data/quoclo.geojson"
                     var map = L.map('mymap', {
                             center: [16.10, 108.20],
                             zoom: 6,
+                            maxZoom: 8,
                             zoomControl: true
                         }
                     );
@@ -51,7 +52,36 @@ $.getJSON("../../../WebAtlas_VietNam_data/hanhchinh/spatial_data/quoclo.geojson"
                         },
                     });
 
-                    /*** Đường quốc lộ ***/
+                    /*** Đường quốc lộ (Vector Tiles) ***/
+                    var quoclo = service_tiles + "atlas_vietnam_tiles/t_quoclo/{z}/{x}/{y}.pbf";
+
+                    var style_quoclo = {
+                        quoclo: function (feat) {
+                            return {
+                                stroke: true,
+                                color: "#ff0012",
+                                weight: 0.5
+                            }
+                        }
+                    }
+
+                    var view_quoclo = L.vectorGrid.protobuf(quoclo, {
+                        endererFactory: L.canvas.tile,
+                        vectorTileLayerStyles: style_quoclo,
+                        interactive: true,
+                        maxZoom: 19,
+                        maxNativeZoom: 14,
+                        getFeatureId: function (feat) {
+                            return feat.properties.ref;
+                        }
+                    })
+
+                    view_quoclo.on('click', function (e) {
+                        view_quoclo.bindPopup("<span style='font-weight: bold; font-family: Arial'>Tên tuyến " +
+                            e.layer.properties["ref"] + "</span>")
+                    })
+
+                    /* View dạng GeoJSON
                     var view_quoclo = L.geoJSON(quoclo, {
                         style: function (feat) {
                             return {
@@ -64,7 +94,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/hanhchinh/spatial_data/quoclo.geojson"
                             layer.bindPopup("<span style='font-weight: bold; font-family: Arial'>Tên tuyến " +
                                 feat.properties.ref + "</span>");
                         }
-                    });
+                    }); */
 
                     /*** Đường sắt ***/
                     var view_duongsat = L.geoJSON(duongsat, {
@@ -190,4 +220,4 @@ $.getJSON("../../../WebAtlas_VietNam_data/hanhchinh/spatial_data/quoclo.geojson"
             })
         })
     })
-})
+//})

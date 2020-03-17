@@ -13,7 +13,7 @@ var op_street = L.tileLayer.provider("OpenStreetMap"),
 });*/
 
 /*---- Dữ liệu Geojson ----*/
-$.getJSON("../../../WebAtlas_VietNam_data/thonhuong/spatial_data/dat_vn.geojson", function (thonhuong) {
+//$.getJSON("../../../WebAtlas_VietNam_data/thonhuong/spatial_data/dat_vn.geojson", function (thonhuong) {
     $.getJSON("../../../WebAtlas_VietNam_data/general_spatial_data/vn_biengioi.geojson", function (biengioi) {
 
         /*** Main Map ***/
@@ -37,7 +37,8 @@ $.getJSON("../../../WebAtlas_VietNam_data/thonhuong/spatial_data/dat_vn.geojson"
         });
 
         /*** Thổ nhưỡng ***/
-        /** Can not change var d **/
+        var thonhuong = service_tiles + "atlas_vietnam_tiles/t_dat_vn/{z}/{x}/{y}.pbf";
+
         function getColor_thonhuong(d) {
             return d == "Đất feralit trên đá badan" ? "#F43E1C" :
                 d == "Đất feralit trên đá vôi" ? "#C56393" :
@@ -50,15 +51,34 @@ $.getJSON("../../../WebAtlas_VietNam_data/thonhuong/spatial_data/dat_vn.geojson"
                                             "#92513D";
         }
 
-        function style_thonhuong(feat) {
-            return {
-                fillColor: getColor_thonhuong(feat.properties.type_dat),
-                weight: 0,
-                color: "transparent",
-                fillOpacity: 1
+        var style_thonhuong = {
+            dat_vn: function (feat) {
+                return {
+                    fill: true,
+                    fillColor: getColor_thonhuong(feat.type_dat),
+                    weight: 0,
+                    color: "transparent",
+                    fillOpacity: 1
+                }
             }
         }
 
+        var view_thonhuong = L.vectorGrid.protobuf(thonhuong, {
+            vectorTileLayerStyles: style_thonhuong,
+            interactive: true,
+            maxZoom: 19,
+            maxNativeZoom: 14,
+            getFeatureId: function (feat) {
+                return feat.properties.type_dat;
+            }
+        })
+
+        view_thonhuong.on('click', function (e) {
+            view_thonhuong.bindPopup("<span style='color: #ff8d3b; " +
+                "font-weight: bolder;'>Loại đất: " + e.layer.properties.type_dat + "</span>")
+        })
+
+        /* View dạng GeoJSON
         var view_thonhuong = L.geoJSON(thonhuong, {
             style: style_thonhuong,
             onEachFeature: function (feat, layer) {
@@ -67,7 +87,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/thonhuong/spatial_data/dat_vn.geojson"
                         "font-weight: bolder;'>Loại đất: " + feat.properties.type_dat + "</span>");
                 }
             }
-        })
+        }) */
 
         /*** Legend ***/
         var thonhuong_legend = L.control({position: "topleft"});
@@ -167,4 +187,4 @@ $.getJSON("../../../WebAtlas_VietNam_data/thonhuong/spatial_data/dat_vn.geojson"
             toggleDisplay: true,
         }).addTo(map);
     })
-})
+//})
