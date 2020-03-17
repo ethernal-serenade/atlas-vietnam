@@ -97,16 +97,15 @@ $.getJSON("../../../WebAtlas_VietNam_data/songngoi/spatial_data/luuvuc_ranhgioi.
                     },
                     onEachFeature: function (feat, layer) {
                         //console.log(feat.properties.length);
-                        if (feat.properties.length >= 40000) {
-                            layer.setText(feat.properties.name, {
-                                center: true,
-                                attributes: {
-                                    fill: "#7872ff",
-                                    'font-size': '9px',
-                                    'font-style': 'italic'
-                                }
-                            })
-                        }
+                        layer.setText(feat.properties.name, {
+                            offset: -2,
+                            center: true,
+                            attributes: {
+                                fill: "#7872ff",
+                                'font-size': '9px',
+                                'font-style': 'italic',
+                            }
+                        })
                     }
                 });
 

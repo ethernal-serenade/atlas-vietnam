@@ -14,7 +14,7 @@ var op_street = L.tileLayer.provider("OpenStreetMap"),
 
 /*---- Dữ liệu Geojson ----*/
 $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/point_dothi_2009.geojson", function (dothi_09) {
-    $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/polygon_danso_2009.geojson", function (density_pop_09) {
+    //$.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/polygon_danso_2009.geojson", function (density_pop_09) {
         $.getJSON("../../../WebAtlas_VietNam_data/general_spatial_data/tinh_ranhgioi.geojson", function (ranhgioi_tinh) {
             $.getJSON("../../../WebAtlas_VietNam_data/general_spatial_data/vn_biengioi.geojson", function (biengioi) {
 
@@ -22,6 +22,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/point_dothi_2009.ge
                 var map = L.map('mymap', {
                         center: [16.10, 108.20],
                         zoom: 6,
+                        maxZoom: 8,
                         zoomControl: true
                     }
                 );
@@ -50,7 +51,9 @@ $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/point_dothi_2009.ge
                     },
                 });
 
-                /*** Mật độ dân số năm 2009 ***/
+                /*** Mật độ dân số năm 2009 (Vector Tiles) ***/
+                var density_pop_09 = service_tiles + "atlas_vietnam_tiles/t_polygon_danso_2009/{z}/{x}/{y}.pbf";
+
                 function getColor_danso(d) {
                     return d > 2000 ? "#C04460" :
                         d > 1000 ? "#E29EB5" :
@@ -61,16 +64,38 @@ $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/point_dothi_2009.ge
                                             "#F6F9E8";
                 }
 
-                function style_matdo_09(feat) {
-                    return {
-                        fillColor: getColor_danso(feat.properties.Density_09),
-                        weight: 0,
-                        dashArray: '3',
-                        color: "#ffffff",
-                        fillOpacity: 1
+                var style_matdo_09 = {
+                    polygon_danso_2009: function (feat) {
+                        return {
+                            fill:true,
+                            fillColor: getColor_danso(feat.Density_09),
+                            weight: 0,
+                            color: "transparent",
+                            fillOpacity: 1
+                        }
                     }
                 }
 
+                var view_matdo_09 = L.vectorGrid.protobuf(density_pop_09, {
+                    vectorTileLayerStyles: style_matdo_09,
+                    interactive: true,
+                    maxZoom: 19,
+                    maxNativeZoom: 14,
+                    getFeatureId: function (feat) {
+                        return feat.properties.Density_09;
+                    }
+                })
+
+                view_matdo_09.on('click', function (e) {
+                    //console.log(e.layer.properties["Quan_Huyen"]);
+                    view_matdo_09.bindPopup("<span style='color: #767676; " +
+                        "font-weight: bolder; font-family: Arial'>" + e.layer.properties["Quan_Huyen"] +
+                        ": " + "<span style='color: red; font-family: Arial'>" +
+                        e.layer.properties["Density_09"] + " người/km²" + "</span>" +
+                        "</span>")
+                })
+
+                /* View dạng GeoJSON
                 var view_matdo_09 = L.geoJSON(density_pop_09, {
                     style: style_matdo_09,
                     onEachFeature: function (feat, layer) {
@@ -82,7 +107,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/point_dothi_2009.ge
                                 "</span>");
                         }
                     }
-                });
+                }); */
 
                 /*** Quy mô dân số và Phân cấp đô thị năm 2009 ***/
                 var view_quymo_danso_TS_T1_T2 = L.geoJSON(dothi_09, {
@@ -419,52 +444,52 @@ $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/point_dothi_2009.ge
                         "<div class='chart-content'>" +
                         "<div class='chart'>" +
                         "<div class='chart_front'>" +
-                            ("<p class='title-legend-chart'>Dân số Việt Nam qua các năm</p>") +
-                            ("<p class='subtitle-chart'>(đơn vị: triệu người)</p>") +
-                            /* DOM Chart */
-                            /** lồng Svg vào thẻ div mới có thể style height width **/
-                            "<div style='width: 400px; height: 200px'>" +
-                            "<svg id='col_chart-pop' class='mybarstackedchart'></svg>" +
-                            "</div>" +
-                            ("<p class='title-legend-chart'>Cơ cấu lao động đang làm việc<br>phân theo khu vực kinh tế</p>") +
-                            ("<p class='subtitle-chart'>(đơn vị: %)</p>") +
-                            "<div style='width: 450px; height: 250px'>" +
-                            "<svg id='area_chart-pop' class='myarechart'></svg>" +
-                            "</div>" +
+                        ("<p class='title-legend-chart'>Dân số Việt Nam qua các năm</p>") +
+                        ("<p class='subtitle-chart'>(đơn vị: triệu người)</p>") +
+                        /* DOM Chart */
+                        /** lồng Svg vào thẻ div mới có thể style height width **/
+                        "<div style='width: 400px; height: 200px'>" +
+                        "<svg id='col_chart-pop' class='mybarstackedchart'></svg>" +
+                        "</div>" +
+                        ("<p class='title-legend-chart'>Cơ cấu lao động đang làm việc<br>phân theo khu vực kinh tế</p>") +
+                        ("<p class='subtitle-chart'>(đơn vị: %)</p>") +
+                        "<div style='width: 450px; height: 250px'>" +
+                        "<svg id='area_chart-pop' class='myarechart'></svg>" +
+                        "</div>" +
                         "</div>" +
                         "<div class='chart_back'>" +
-                            ("<p class='title-legend-chart' style='margin-top: 10px'>Tháp dân số</p>") +
-                            ("<p class='subtitle-chart' style='margin-left: 75px; font-size: 16px; font-weight: bold; display: inline'>Năm 2009</p>") +
-                            ("<p class='subtitle-chart' style='margin-left: 50.5px; font-size: 15px; " +
-                                "font-weight: bold; display: inline; color: #a2d8f2'>Nữ</p>") +
-                            ("<p class='subtitle-chart' style='margin-left: 30px; font-size: 15px; " +
+                        ("<p class='title-legend-chart' style='margin-top: 10px'>Tháp dân số</p>") +
+                        ("<p class='subtitle-chart' style='margin-left: 75px; font-size: 16px; font-weight: bold; display: inline'>Năm 2009</p>") +
+                        ("<p class='subtitle-chart' style='margin-left: 50.5px; font-size: 15px; " +
+                            "font-weight: bold; display: inline; color: #a2d8f2'>Nữ</p>") +
+                        ("<p class='subtitle-chart' style='margin-left: 30px; font-size: 15px; " +
                             "font-weight: bold; display: inline; color: #f5b3cc'>Nam</p>") +
-                            ("<p class='subtitle-chart' style='margin-left: 50px; font-size: 16px; font-weight: bold; display: inline'>Năm 2019</p>") +
-                            "<div style='width: 400px; height: 200px'>" +
-                                "<div id='pyramid_09'></div>" +
-                                "<div id='pyramidchart_axes'>" +
-                                    "<p>85+</p>" +
-                                    "<p>80-84</p>" +
-                                    "<p>75-79</p>" +
-                                    "<p>70-74</p>" +
-                                    "<p>65-69</p>" +
-                                    "<p>60-64</p>" +
-                                    "<p>55-59</p>" +
-                                    "<p>50-54</p>" +
-                                    "<p>45-49</p>" +
-                                    "<p>40-44</p>" +
-                                    "<p>35-39</p>" +
-                                    "<p>30-34</p>" +
-                                    "<p>25-29</p>" +
-                                    "<p>20-24</p>" +
-                                    "<p>15-19</p>" +
-                                    "<p>10-14</p>" +
-                                    "<p>5-9</p>" +
-                                    "<p>0-4</p>" +
-                                "</div>" +
-                                "<div id='pyramid_19'></div>" +
-                            "</div>"+
-                        "</div>"+
+                        ("<p class='subtitle-chart' style='margin-left: 50px; font-size: 16px; font-weight: bold; display: inline'>Năm 2019</p>") +
+                        "<div style='width: 400px; height: 200px'>" +
+                        "<div id='pyramid_09'></div>" +
+                        "<div id='pyramidchart_axes'>" +
+                        "<p>85+</p>" +
+                        "<p>80-84</p>" +
+                        "<p>75-79</p>" +
+                        "<p>70-74</p>" +
+                        "<p>65-69</p>" +
+                        "<p>60-64</p>" +
+                        "<p>55-59</p>" +
+                        "<p>50-54</p>" +
+                        "<p>45-49</p>" +
+                        "<p>40-44</p>" +
+                        "<p>35-39</p>" +
+                        "<p>30-34</p>" +
+                        "<p>25-29</p>" +
+                        "<p>20-24</p>" +
+                        "<p>15-19</p>" +
+                        "<p>10-14</p>" +
+                        "<p>5-9</p>" +
+                        "<p>0-4</p>" +
+                        "</div>" +
+                        "<div id='pyramid_19'></div>" +
+                        "</div>" +
+                        "</div>" +
                         "</div>" +
                         "</div>";
                     var draggable = new L.Draggable(div);
@@ -517,5 +542,5 @@ $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/point_dothi_2009.ge
                 });
             });
         });
-    });
+    //});
 })

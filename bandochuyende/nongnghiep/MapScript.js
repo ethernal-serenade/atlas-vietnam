@@ -15,13 +15,14 @@ var op_street = L.tileLayer.provider("OpenStreetMap"),
 /*---- Dữ liệu Geojson ----*/
 $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/nongnghiep_line.geojson", function (line_nn) {
     $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/point_nongnghiep.geojson", function (point_nn) {
-        $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/ht_sudungdat.geojson", function (ht_sudungdat) {
+        //$.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/ht_sudungdat.geojson", function (ht_sudungdat) {
             $.getJSON("../../../WebAtlas_VietNam_data/general_spatial_data/vn_biengioi.geojson", function (biengioi) {
 
                 /*** Main Map ***/
                 var map = L.map('mymap', {
                         center: [16.10, 106.60],
                         zoom: 6,
+                        maxZoom: 8,
                         zoomControl: true
                     }
                 );
@@ -67,8 +68,9 @@ $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/nongnghiep_lin
                     }
                 })
 
-                /*** Hiện trạng sử dụng đất ***/
-                /** Can not change var d **/
+                /*** Hiện trạng sử dụng đất (Vector Tiles) ***/
+                var ht_sudungdat = service_tiles + "atlas_vietnam_tiles/t_ht_sudungdat/{z}/{x}/{y}.pbf";
+
                 function getColor_ht_sudungdat(d) {
                     return d == "Đất trồng cây lương thực, thực phẩm và cây hằng năm" ? "#fffa6a" :
                         d == "Đất trồng cây công nghiệp lâu năm và cây ăn quả" ? "#f3ab51" :
@@ -79,15 +81,34 @@ $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/nongnghiep_lin
                                             "#0000ff";
                 }
 
-                function style_ht_sudungdat(feat) {
-                    return {
-                        fillColor: getColor_ht_sudungdat(feat.properties.type_htrang),
-                        weight: 0,
-                        color: "transparent",
-                        fillOpacity: 1
+                var style_ht_sudungdat = {
+                    ht_sudungdat: function (feat) {
+                        return {
+                            fill:true,
+                            fillColor: getColor_ht_sudungdat(feat.type_htrang),
+                            weight: 0,
+                            color: "transparent",
+                            fillOpacity: 1
+                        }
                     }
                 }
 
+                var view_ht_sudungdat = L.vectorGrid.protobuf(ht_sudungdat, {
+                    vectorTileLayerStyles: style_ht_sudungdat,
+                    interactive: true,
+                    maxZoom: 19,
+                    maxNativeZoom: 14,
+                    getFeatureId: function (feat) {
+                        return feat.properties.type_htrang;
+                    }
+                })
+
+                view_ht_sudungdat.on('click', function (e) {
+                    view_ht_sudungdat.bindPopup("<span style='color: #000000; " +
+                        "font-weight: bolder;'>Loại đất: " + e.layer.properties.type_htrang + "</span>")
+                })
+
+                /* View dạng GeoJSON
                 var view_ht_sudungdat = L.geoJSON(ht_sudungdat, {
                     style: style_ht_sudungdat,
                     onEachFeature: function (feat, layer) {
@@ -96,7 +117,7 @@ $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/nongnghiep_lin
                                 "font-weight: bolder;'>Loại đất: " + feat.properties.type_htrang + "</span>");
                         }
                     }
-                })
+                }) */
 
                 /*** Hàm Collison Labels ***/
                 var i = 0;
@@ -290,4 +311,4 @@ $.getJSON("../../../WebAtlas_VietNam_data/nongnghiep/spatial_data/nongnghiep_lin
             })
         })
     })
-})
+//})
