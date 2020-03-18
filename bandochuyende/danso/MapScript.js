@@ -86,11 +86,21 @@ $.getJSON("../../../WebAtlas_VietNam_data/danso/spatial_data/point_dothi_2009.ge
 
                 view_matdo_09.on('click', function (e) {
                     //console.log(e.layer.properties["Quan_Huyen"]);
-                    view_matdo_09.bindPopup("<span style='color: #767676; " +
-                        "font-weight: bolder; font-family: Arial'>" + e.layer.properties["Quan_Huyen"] +
-                        ": " + "<span style='color: red; font-family: Arial'>" +
-                        e.layer.properties["Density_09"] + " người/km²" + "</span>" +
-                        "</span>")
+                    if (e.layer.properties["Quan_Huyen"] != null)
+                    {
+                        view_matdo_09.bindPopup("<span style='color: #767676; " +
+                            "font-weight: bolder; font-family: Arial'>" + e.layer.properties["Quan_Huyen"] +
+                            ": " + "<span style='color: red; font-family: Arial'>" +
+                            e.layer.properties["Density_09"] + " người/km²" + "</span>" +
+                            "</span>")
+                    } else {
+                        view_matdo_09.bindPopup("<span style='color: #767676; " +
+                            "font-weight: bolder; font-family: Arial'>" + e.layer.properties["NAME_2"] +
+                            ": " + "<span style='color: red; font-family: Arial'>" +
+                            e.layer.properties["Density_09"] + " người/km²" + "</span>" +
+                            "</span>")
+                    }
+
                 })
 
                 /* View dạng GeoJSON
