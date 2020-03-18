@@ -4,13 +4,11 @@ var op_street = L.tileLayer.provider("OpenStreetMap"),
     CartoDB = L.tileLayer.provider("CartoDB.Voyager"),
     Hydda_base = L.tileLayer.provider("Hydda.Base");
 
-/*---- Đọc WMS Geosever ----*/
-/*var base = L.tileLayer.wms('http://localhost:8080/geoserver/cite/wms?', {
-    layers: 'tn_hanhchinh',
-    tiled: true,
-    format: 'image/png',
-    transparent: true
-});*/
+/*---- Base Việt Bản đồ ----*/
+var viet_bando = L.tileLayer('http://images.vietbando.com/ImageLoader/GetImage.ashx?Ver=2016&LayerIds=VBD&X={x}&Y={y}&Level={z}', {
+    attribution: 'Map tiles by Vietbando',
+    minZoom: 0
+});
 
 /*---- Dữ liệu Geojson ----*/
 //$.getJSON("../../../WebAtlas_VietNam_data/khihau/spatial_data/doam_vung.geojson", function (doam_vung) {
@@ -389,7 +387,8 @@ var op_street = L.tileLayer.provider("OpenStreetMap"),
                         }
                     });
 
-                    CartoDB.addTo(map);
+                    viet_bando.addTo(map);
+                    //CartoDB.addTo(map);
                     view_biengioi.addTo(map);
                     view_phanvungkhihau.addTo(map);
                     //view_nhietdo.addTo(map);

@@ -5,12 +5,18 @@ var op_street = L.tileLayer.provider("OpenStreetMap"),
     Hydda_base = L.tileLayer.provider("Hydda.Base");
 
 /*---- Đọc WMS Geosever ----*/
-var base_vn = L.tileLayer.wms('http://localhost:8080/geoserver/vietnam_tinh_polygon/wms?', {
-    layers: 'gadm36_VNM_1',
+var base_vn = L.tileLayer.wms('http://opengis.vn:8080/geoserver/atlas_vietnam/wms?service=WMS', {
+    layers: 'atlas_vietnam:gadm36_vnm_1',
     tiled: true,
     format: 'image/png',
     opacity: 0.3,
     transparent: true
+});
+
+/*---- Base Việt Bản đồ ----*/
+var viet_bando = L.tileLayer('http://images.vietbando.com/ImageLoader/GetImage.ashx?Ver=2016&LayerIds=VBD&X={x}&Y={y}&Level={z}', {
+    attribution: 'Map tiles by Vietbando',
+    minZoom: 0
 });
 
 //$.getJSON("../../../WebAtlas_VietNam_data/hanhchinh/spatial_data/quoclo.geojson", function (quoclo) {
@@ -180,7 +186,8 @@ var base_vn = L.tileLayer.wms('http://localhost:8080/geoserver/vietnam_tinh_poly
                         }
                     }
 
-                    CartoDB.addTo(map);
+                    viet_bando.addTo(map);
+                    //CartoDB.addTo(map);
                     base_vn.addTo(map);
                     view_biengioi.addTo(map);
                     view_ranhgioi_tinh.addTo(map);
