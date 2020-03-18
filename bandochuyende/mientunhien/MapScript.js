@@ -12,14 +12,6 @@ var ggbasemap = L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}'
     iconURL: 'https://mt1.google.com/vt/lyrs=p&x=101&y=60&z=7'
 });
 
-/*---- Đọc WMS Geosever ----*/
-/*var base = L.tileLayer.wms('http://localhost:8080/geoserver/cite/wms?', {
-    layers: 'tn_hanhchinh',
-    tiled: true,
-    format: 'image/png',
-    transparent: true
-});*/
-
 $.getJSON("../../../WebAtlas_VietNam_data/mientunhien/spatial_data/mientunhien.geojson", function(mientunhien) {
     $.getJSON("../../../WebAtlas_VietNam_data/general_spatial_data/vn_biengioi.geojson", function (biengioi) {
         /*** Main Map
