@@ -186,6 +186,59 @@ var viet_bando = L.tileLayer('http://images.vietbando.com/ImageLoader/GetImage.a
                         }
                     }
 
+                    /*** Legend ***/
+                    var hanhchinh_legend = L.control({position: "topleft"});
+                    hanhchinh_legend.onAdd = map => {
+                        var div = L.DomUtil.create('div', 'info legend');
+
+                        div.innerHTML =
+                            "<div class='legend-content' style='margin-top: 50%'>" +
+                            "<div class='legend'>" +
+                            ("<p class='title-legend-chart' style='font-size: 12px'>Chú thích hành chính</p>") +
+                            ("<div class='container_poi'>" +
+                                "<div class='fa fa-dot-circle-o fontaws_poi' style='padding-left: 1px; " +
+                                "color: #ff0000; margin-left: 18.5px'></div>" +
+                                "<span class='label_legend_poi_fa' style='margin-left: 35px; " +
+                                "font-size: 13px; " +
+                                "font-family: Arial !important'>" + "Tỉnh/thành phố" + "</span>" +
+                                "</div>") + '<br>' +
+                            ("<div class='container_poi' style='margin-top: -15px'>" +
+                                "<svg height='40' width='50'>" +
+                                "<g fill='none'>" +
+                                "<path stroke='#ff0012' d='M5 20 l215 0' />" +
+                                "</g>" +
+                                "</svg>" +
+                                "<span class='label_legend_poi_fa' style='margin-left: 20px; " +
+                                "font-size: 13px; " +
+                                "font-family: Arial !important'>" + "Đường quốc lộ" + "</span>" +
+                                "</div>") + '<br>' +
+                            ("<div class='container_poi' style='margin-top: -30px'>" +
+                                "<svg height='40' width='50'>" +
+                                "<g fill='none'>" +
+                                "<path stroke='#000000' d='M5 20 l215 0' />" +
+                                "</g>" +
+                                "</svg>" +
+                                "<span class='label_legend_poi_fa' style='margin-left: 20px; " +
+                                "font-size: 13px; " +
+                                "font-family: Arial !important'>" + "Đường sắt" + "</span>" +
+                                "</div>") +
+                            "</div>" +
+                            "</div>";
+                        var draggable = new L.Draggable(div);
+                        draggable.enable();
+                        return div;
+                    };
+                    hanhchinh_legend.addTo(map);
+
+                    /*--- Control Legend ---*/
+                    $('#switch_legend').change(function () {
+                        if ($(this).prop('checked')) {
+                            map.addControl(hanhchinh_legend);
+                        } else {
+                            map.removeControl(hanhchinh_legend);
+                        }
+                    });
+
                     viet_bando.addTo(map);
                     //CartoDB.addTo(map);
                     base_vn.addTo(map);

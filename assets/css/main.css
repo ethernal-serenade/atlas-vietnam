@@ -277,7 +277,7 @@ nav a::before {
     overflow-y: scroll;
     position: relative;
     width: 80%;
-    height: 80%;
+    height: 85%;
     left: 20%;
     top: 10%;
 }
@@ -599,7 +599,7 @@ nav a::before {
 
 .owl-dots {
     text-align: center;
-    margin-top: 30px;
+    margin-top: -5px;
 }
 
 .owl-dots .owl-dot {
@@ -608,7 +608,7 @@ nav a::before {
 }
 
 .owl-dots .active span {
-    background-color: #faf5b2 !important;
+    background-color: #ff6a00 !important;
 }
 
 .owl-dots .owl-dot span {
@@ -620,7 +620,18 @@ nav a::before {
     outline: none;
     cursor: pointer;
 }
+.owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
+    color: #fff !important;
+    font-size: 30px !important;
+}
 
+.owl-carousel .owl-nav button.owl-prev {
+    margin-right: 10px;
+}
+
+.owl-carousel .owl-nav button.owl-prev:focus, .owl-carousel .owl-nav button.owl-next:focus {
+    outline-color: transparent;
+}
 
 /* Slide 4 Style */
 .fourth-content {
@@ -700,6 +711,11 @@ nav a::before {
     color: #1e1e1e;
 }
 
+.contact-slides i{
+    margin-top: 30px;
+    font-size: 30px;
+    color: #ffffff;
+}
 
 /* Responsive Style */
 @media (max-width: 991px) {
