@@ -330,9 +330,11 @@ $.getJSON("../../../WebAtlas_VietNam_data/dulich/spatial_data/diem_rung_khubaoto
                                     "symbols/hotel_symbol.png", "symbols/culture_symbol.png"];
 
                                 div.innerHTML =
-                                    "<div class='legend-content' style='margin-top: 15%'>" +
-                                    "<div class='legend'>" +
+                                    "<div class='legend-content' style='margin-top: 35%'>" +
+                                    "<div class='legend' style='width: 470px'>" +
                                     ("<p class='title-legend-chart'>Loại hình du lịch tại việt nam</p>") +
+                                    "<div class='row_legend'>" +
+                                    ("<div class='col_legend'>" +
                                     ("<div class='container_poi'>" +
                                         "<div class='overlay_poi'></div>" +
                                         "<img src=" + labels[0] + " width='40' height='40' style='margin:15px 0px 0px 8px'>" +
@@ -357,6 +359,8 @@ $.getJSON("../../../WebAtlas_VietNam_data/dulich/spatial_data/diem_rung_khubaoto
                                         "<img src=" + labels[4] + " width='40' height='40' style='margin:15px 0px 0px 8px'>" +
                                         "<span class='label_legend_symbol'>" + "Khu du lịch" + "</span>" +
                                         "</div>") +
+                                        "</div>") +
+                                    ("<div class='col_legend'>" +
                                     ("<div class='container_poi'>" +
                                         "<div class='overlay_poi'></div>" +
                                         "<img src=" + labels[5] + " width='60' height='40' style='margin:15px 0px 0px -3.25px'>" +
@@ -380,6 +384,8 @@ $.getJSON("../../../WebAtlas_VietNam_data/dulich/spatial_data/diem_rung_khubaoto
                                         "<img src=" + labels[9] + " width='35' height='60' style='margin:15px 0px 0px 8px'>" +
                                         "<span class='label_legend_symbol' style='margin-top: 28px; margin-left: 21px;'>" + "Văn hóa lịch sử" + "</span>" +
                                         "</div>") +
+                                        "</div>") +
+                                    "</div>" +
                                     "</div>" +
                                     "</div>";
                                 var draggable = new L.Draggable(div);

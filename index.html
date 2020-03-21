@@ -23,11 +23,17 @@
 
     <!-- Additional CSS Files -->
     <link href="assets/css/fontawesome.css" rel="stylesheet">
-    <!-- <link href="assets/fontawesome-free-5.12.1-web/css/all.css"> -->
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/owl.css" rel="stylesheet">
 
-    <!-- <script src="assets/fontawesome-free-5.12.1-web/js/all.js"></script> -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/accordations.js"></script>
+    <script src="assets/js/main.js"></script>
 </head>
 
 <body>
@@ -93,7 +99,7 @@
             </div>
         </div>
         <div class="slide" id="2">
-            <div class="content second-content">
+            <div class="content second-content" style="height: 80%">
                 <div id='tabs'>
                     <ul>
                         <li><a href='#tabs-1'><span class='fa fa-desktop'></span></a></li>
@@ -118,7 +124,7 @@
             </div>
         </div>
         <div class="slide" id="3">
-            <div class="content third-content">
+            <div class="content third-content" style="height: 80%">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="owl-carousel owl-theme">
@@ -203,7 +209,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="featured-item">
-                                    <a href=""><img alt="" src="assets/images/dantoc.jpg"></a>
+                                    <!-- <a href=""><img alt="" src="assets/images/dantoc.jpg"></a> -->
                                     <div class="down-content">
                                         <h4>Dân tộc</h4>
                                     </div>
@@ -247,7 +253,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="featured-item">
-                                    <a href=""><img alt="" src="assets/images/congnghiep.jpg"></a>
+                                    <!-- <a href=""><img alt="" src="assets/images/congnghiep.jpg"></a> -->
                                     <div class="down-content">
                                         <h4>Công nghiệp</h4>
                                     </div>
@@ -264,7 +270,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="featured-item">
-                                    <a href=""><img alt="" src="assets/images/thuongmai.jpg"></a>
+                                    <!-- <a href=""><img alt="" src="assets/images/thuongmai.jpg"></a> -->
                                     <div class="down-content">
                                         <h4>Thương mại</h4>
                                     </div>
@@ -281,7 +287,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="featured-item">
-                                    <a href=""><img alt="" src="assets/images/TNXH-VN.jpg"></a>
+                                    <!-- <a href=""><img alt="" src="assets/images/TNXH-VN.jpg"></a> -->
                                     <div class="down-content">
                                         <h4>Vùng Tự nhiên và Kinh tế</h4>
                                     </div>
@@ -289,7 +295,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="featured-item">
-                                    <a href=""><img alt="" src="assets/images/KTTD-VN.jpg"></a>
+                                    <!-- <a href=""><img alt="" src="assets/images/KTTD-VN.jpg"></a> -->
                                     <div class="down-content">
                                         <h4>Vùng kinh tế trọng điểm</h4>
                                     </div>
@@ -332,6 +338,26 @@
                                     <button class="button" id="form-submit" type="submit">Gửi đến chúng tôi</button>
                                 </fieldset>
                             </div>
+                            <div class="col-md-3 contact-slides">
+                                <a href="#0">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </div>
+                            <div class="col-md-3 contact-slides">
+                                <a href="#0">
+                                <i class="fa fa-twitter"></i>
+                                </a>
+                            </div>
+                            <div class="col-md-3 contact-slides">
+                                <a href="#0">
+                                <i class="fa fa-youtube"></i>
+                                </a>
+                            </div>
+                            <div class="col-md-3 contact-slides">
+                                <a href="#0">
+                                <i class="fa fa-dribbble"></i>
+                                </a>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -339,20 +365,8 @@
         </div>
     </div>
 
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-    <!-- Additional Scripts -->
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/accordations.js"></script>
-    <script src="assets/js/main.js"></script>
-
     <script type="text/javascript">
         $(document).ready(function () {
-
             // navigation click actions
             $('.scroll-link').on('click', function (event) {
                 event.preventDefault();

@@ -6,6 +6,8 @@ jQuery(document).ready(function($) {
             items:4,
             lazyLoad:true,
             dots:true,
+            loop:false,
+            nav:true,
             responsiveClass:true,
                 responsive:{
                     0:{

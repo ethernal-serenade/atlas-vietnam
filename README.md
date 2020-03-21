@@ -49,6 +49,14 @@
     }
  ```
 
+### Feedback
+ + Feedback dữ liệu "undefined" khi nhấn Popup bên chuyên đề dân số: Done (18/3)
+ + Feedback thêm Continue hoặc ký hiệu để người dùng biết có thể kéo thả trang: Done (18/3, thêm ký hiệu "<" và ">" ở owl.js)
+ + Feedback chuyển trang chuyên đề: Pending
+ + Feedback chuyển trang trong các trang chuyên đề: Done (21/3)
+ + Feedback content của các trang: Pending
+ + Feedback thêm contact và ký hiệu contact: Done (21/3)
+
 ### Note
  + Vector Tiles: https://github.com/nguyenduclam/Leaflet-Style-Vector-Tiles
  + Interactive Choropleth Map: https://leafletjs.com/examples/choropleth/
