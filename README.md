@@ -52,7 +52,41 @@
 ### Feedback
  + Feedback dữ liệu "undefined" khi nhấn Popup bên chuyên đề dân số: Done (18/3)
  + Feedback thêm Continue hoặc ký hiệu để người dùng biết có thể kéo thả trang: Done (18/3, thêm ký hiệu "<" và ">" ở owl.js)
- + Feedback chuyển trang chuyên đề: Pending
+ + Feedback chuyển trang chuyên đề: Done (trước đây khi mở chuyên đề mới sẽ là bấm "Trang chủ" và load về trang chú ngay từ đầu,
+ không load được tại chỗ mà mình click chuyên đề ==> Giữ lại trang chỗ bản đồ chuyên đề ngày từ đầu, chuyển sang cơ chế mới)
+    + Sử dụng thuộc tính `target: "_blank"` để có thể mở link chuyên đề mới, vẫn giữ link của trang chủ
+    + Tạo thẻ 
+        ```
+            <li class="nav-dropdown">
+                <a class="nav-dropmain">Các bản đồ chuyên đề khác
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="nav-dropdown-content" style="overflow: auto; height: 250px">
+                    <a href="../hanhchinh/hanhchinh.html">Hành chính</a>
+                    <a href="../hinhthe/hinhthe.html">Hình thể</a>
+                    <a href="../diachatkhoangsan/dcks.html" style="font-size: 15px">Địa chất khoáng sản</a>
+                    <a href="../khihau/khihau.html">Khí hậu</a>
+                    <a href="../songngoi/songngoi.html">Hệ thống sông ngòi</a>
+                    <a href="../thonhuong/thonhuong.html">Thổ nhưỡng</a>
+                    <a href="../sinhvat/sinhvat.html">Sinh vật</a>
+                    <a href="../mientunhien/mientunhien.html">Các miền tự nhiên</a>
+                    <a href="../danso/danso.html">Dân số</a>
+                    <a href="">Dân tộc</a>
+                    <a href="../kinhte/kinhte.html">Kinh tế chung</a>
+                    <a href="../nongnghiep/nongnghiep.html">Nông nghiệp chung</a>
+                    <a href="../lamnghiep/lamnghiep.html">Lâm nghiệp</a>
+                    <a href="../thuysan/thuysan.html">Thủy sản</a>
+                    <a href="">Công nghiệp</a>
+                    <a href="../giaothong/giaothong.html">Giao thông</a>
+                    <a href="">Thương mại</a>
+                    <a href="../dulich/dulich.html">Du lịch</a>
+                    <a href="" style="font-size: 15px">Vùng tự nhiên và kinh tế</a>
+                    <a href="" style="font-size: 15px">Vùng kinh tế trọng điểm</a>
+                </div>
+            </li>
+        ``` 
+    để chuyển đổi chuyên đề nhanh trong các trang bản đồ chuyên đề
+    + Bỏ thẻ `<li><a href="../../index.html">Trang chủ</a></li>` tại các bản đồ chuyền đề
  + Feedback chuyển trang trong các trang chuyên đề: Done (21/3)
  + Feedback content của các trang: Pending
  + Feedback thêm contact và ký hiệu contact: Done (21/3)
