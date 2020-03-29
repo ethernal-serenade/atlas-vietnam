@@ -121,27 +121,35 @@
                     </ul>
                     <section class='tabs-content'>
                         <article id='tabs-1'>
-                            <h2>Chúng tôi đưa đến bạn</h2>
-                            <span>cách thức tiếp cận Atlas mới</span>
+                            <span>Chúng tôi đưa đến bạn</span>
+                            <h2 style="color: red">cách thức tiếp cận Atlas mới</h2>
+                            <p>Cách thức tiếp cận qua sách vở đã trở nên nhàm chán, tại sao không thử chuyển sang Atlas Online?
+                            Một sản phẩm mới giúp chúng ta khai thác nền tảng địa lý một cách mạnh mẽ và chuyên nghiệp hơn</p>
                         </article>
                         <article id='tabs-2'>
-                            <h2>Những điều chúng tôi làm</h2>
-                            <span>để tạo nên WebAtlas</span>
+                            <span>Những điều chúng tôi làm</span>
+                            <h2 style="color: green">để tạo nên WebAtlas</h2>
+                            <p>Xuất thân của chúng tôi là những sinh viên học địa lý, chúng tôi hiểu rõ sự khó khăn khi học và sử dụng tập Atlas
+                            và chúng tôi sẽ giúp bạn cảm thấy điều này rõ ràng hơn thông qua việc sử dụng sản phẩm này</p>
                         </article>
                         <article id='tabs-3'>
-                            <h2>Chúng tôi là ai?</h2>
-                            <span>Những người yêu lập trình và địa lý</span>
+                            <span>Chúng tôi là ai?</span>
+                            <h2 style="color: #2890ff">Những Lập trình viên WebGIS</h2>
                         </article>
                     </section>
                 </div>
             </div>
         </div>
         <div class="slide" id="3">
-            <div class="content third-content" style="height: 80%">
+            <div class="content third-content" style="height: 90%">
                 <div class="container-fluid">
-                    <div class="row">
+                    <form class="form-inline md-form mr-auto mb-4">
+                        <div class="fa fa-search" style="color: #fff; font-size: 20px; margin-right: 10px"></div>
+                        <input class="form-control mr-sm-2" type="text" placeholder="Tìm bản đồ chuyên đề" id="search_map">
+                    </form>
+                    <div class="row" id="map_name">
                         <div class="owl-carousel owl-theme">
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Hành chính">
                                 <div class="featured-item">
                                     <a href="bandochuyende/hanhchinh/hanhchinh.html" target="_blank"><img alt=""
                                                                                           src="assets/images/hanhchinh.png"></a>
@@ -150,7 +158,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Hình thể">
                                 <div class="featured-item">
                                     <a href="bandochuyende/hinhthe/hinhthe.html" target="_blank"><img alt=""
                                                                                       src="assets/images/hinhthe.png"></a>
@@ -159,7 +167,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Địa chất khoáng sản">
                                 <div class="featured-item">
                                     <a href="bandochuyende/diachatkhoangsan/dcks.html" target="_blank"><img alt=""
                                                                                             src="assets/images/diachat.png"></a>
@@ -168,7 +176,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Khí hậu">
                                 <div class="featured-item">
                                     <a href="bandochuyende/khihau/khihau.html" target="_blank"><img alt="" src="assets/images/khihau.png"></a>
                                     <div class="down-content">
@@ -176,7 +184,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Hệ thống sông ngòi">
                                 <div class="featured-item">
                                     <a href="bandochuyende/songngoi/songngoi.html" target="_blank"><img alt=""
                                                                                         src="assets/images/songngoi.png"></a>
@@ -185,7 +193,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Thổ nhưỡng">
                                 <div class="featured-item">
                                     <a href="bandochuyende/thonhuong/thonhuong.html" target="_blank"><img alt=""
                                                                                           src="assets/images/thonhuong.png"></a>
@@ -194,7 +202,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Sinh vật">
                                 <div class="featured-item">
                                     <a href="bandochuyende/sinhvat/sinhvat.html" target="_blank"><img alt=""
                                                                                       src="assets/images/sinhvat.png"></a>
@@ -203,7 +211,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Các miền tự nhiên">
                                 <div class="featured-item">
                                     <a href="bandochuyende/mientunhien/mientunhien.html" target="_blank"><img alt=""
                                                                                               src="assets/images/mientunhien.png"></a>
@@ -212,7 +220,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Dân số">
                                 <div class="featured-item">
                                     <a href="bandochuyende/danso/danso.html" target="_blank"><img alt="" src="assets/images/danso.png"></a>
                                     <div class="down-content">
@@ -220,7 +228,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Dân tộc">
                                 <div class="featured-item">
                                     <!-- <a href="" target="_blank"><img alt="" src="assets/images/dantoc.jpg"></a> -->
                                     <div class="down-content">
@@ -228,7 +236,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Kinh tế chung">
                                 <div class="featured-item">
                                     <a href="bandochuyende/kinhte/kinhte.html" target="_blank"><img alt=""
                                                                                     src="assets/images/kinhte.png"></a>
@@ -237,7 +245,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Nông nghiệp chung">
                                 <div class="featured-item">
                                     <a href="bandochuyende/nongnghiep/nongnghiep.html" target="_blank"><img alt=""
                                                                                             src="assets/images/nongnghiep.png"></a>
@@ -246,7 +254,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Lâm nghiệp">
                                 <div class="featured-item">
                                     <a href="bandochuyende/lamnghiep/lamnghiep.html" target="_blank"><img alt=""
                                                                                           src="assets/images/lamnghiep.png"></a>
@@ -255,7 +263,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Thủy sản">
                                 <div class="featured-item">
                                     <a href="bandochuyende/thuysan/thuysan.html" target="_blank"><img alt=""
                                                                                       src="assets/images/thuysan.png"></a>
@@ -264,7 +272,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Công nghiệp">
                                 <div class="featured-item">
                                     <!-- <a href="" target="_blank"><img alt="" src="assets/images/congnghiep.jpg"></a> -->
                                     <div class="down-content">
@@ -272,7 +280,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Giao thôngh">
                                 <div class="featured-item">
                                     <a href="bandochuyende/giaothong/giaothong.html" target="_blank"><img alt=""
                                                                                           src="assets/images/giaothong.png"></a>
@@ -281,7 +289,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Thương mại">
                                 <div class="featured-item">
                                     <!-- <a href="" target="_blank"><img alt="" src="assets/images/thuongmai.jpg"></a> -->
                                     <div class="down-content">
@@ -289,7 +297,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Du lịch">
                                 <div class="featured-item">
                                     <a href="bandochuyende/dulich/dulich.html" target="_blank"><img alt=""
                                                                                     src="assets/images/dulich.png"></a>
@@ -298,7 +306,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Vùng Tự nhiên và Kinh tế">
                                 <div class="featured-item">
                                     <!-- <a href="" target="_blank"><img alt="" src="assets/images/TNXH-VN.jpg"></a> -->
                                     <div class="down-content">
@@ -306,7 +314,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="Vùng kinh tế trọng điểm">
                                 <div class="featured-item">
                                     <!-- <a href="" target="_blank"><img alt="" src="assets/images/KTTD-VN.jpg"></a> -->
                                     <div class="down-content">
@@ -380,6 +388,14 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            // Tìm kiếm bản đồ chuyên đề
+            $("#search_map").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#map_name div div").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
             // navigation click actions
             $('.scroll-link').on('click', function (event) {
                 event.preventDefault();
