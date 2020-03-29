@@ -30,6 +30,7 @@
  + Có nên áp dụng AmChart cho từng điểm? (Pending) ==> leaflet minichart ở phần maxValue không để auto
  + View 3D cho chuyên đề hình thể? (Pending)
  + Chuyển geoJSON sang Tiles Vector Server (15/3 đến 18/3)
+ + Thêm phần Search chuyên đề (29/3)
  
 ### Khó khăn phát sinh:
  + Dữ liệu lên đến hơn 700mb ==> Úp github lên không nổi ==> Chuyển bộ dữ liệu sang 1 nơi khác (không để chung với code)
@@ -176,3 +177,4 @@
  + Disable Control Layer and Container: https://gis.stackexchange.com/questions/259134/how-to-disable-leaflet-layers-control
  + Leaflet Gpx and Leaflet Elevation: https://raruto.github.io/leaflet-elevation/examples/leaflet-elevation_hoverable-tracks.html
  + Date Axis Interval: https://codepen.io/team/amcharts/pen/gOOZdvp?editors=0010
+ + Boostrap Search: https://mdbootstrap.com/docs/jquery/forms/search/
