@@ -33,6 +33,7 @@
  + Thêm phần Search chuyên đề (29/3)
  
 ### Khó khăn phát sinh:
+ + Khả năng reponsive trên các màn hình chưa tối ưu
  + Dữ liệu lên đến hơn 700mb ==> Úp github lên không nổi ==> Chuyển bộ dữ liệu sang 1 nơi khác (không để chung với code)
  + Chuyển config file trong xampp sang ổ đĩa khác: https://stackoverflow.com/questions/18902887/how-to-configuring-a-xampp-web-server-for-different-root-directory
  + Đóng lại github và link repo ==> Đổi từ public sang private (7/3)
